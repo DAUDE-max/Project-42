@@ -1,0 +1,22 @@
+public class Map {
+
+    GamePanel panel;
+
+
+    Map(GamePanel panel){
+        this.panel = panel;
+        buildMap();
+    }
+
+    public void buildMap(){
+        int c = panel.col;
+        int r = panel.row;
+        int img = 0;
+
+        for(int x = 0;x<c;x++){
+            for(int y = 0; y<r; y++){
+                new Tile(x*panel.tileSize,y*panel.tileSize,img);
+            }
+        }
+    }
+}
