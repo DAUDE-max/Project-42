@@ -3,7 +3,6 @@ package main;
 import Entitys.Player;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicTreeUI;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -13,12 +12,8 @@ public class GamePanel extends JPanel implements Runnable {
     public int col = 30;
     public int row = 18;
 
-    int FPS = 60;
+    double FPS = 60;
 
-    // Player 0/0
-        int pX = 100;
-        int pY = 100;
-        int pS = 4;
 
     // Construktor
     GamePanel(){

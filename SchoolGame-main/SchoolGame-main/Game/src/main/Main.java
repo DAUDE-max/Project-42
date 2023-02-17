@@ -1,11 +1,9 @@
 package main;
 
-import main.GamePanel;
-
 import javax.swing.*;
 
 class Main{
-    public static void main(String Args[]){
+    public static void main(String[] Args){
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setTitle("2d-Game");
