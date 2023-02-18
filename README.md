@@ -91,5 +91,12 @@ Tag 5:
   
   Tiles und Player Images designt
   
+Tag 6:
 
+  Collision erstellt und 2 Stunden lang perfektioniert
+  
+Tag 7:
+  
+  Let Objects Exist; SuperClass vererbt name, id, draw, img, und position; ObjectManager plaziert die Objekte;
+  
  
