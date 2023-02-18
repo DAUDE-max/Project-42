@@ -39,12 +39,19 @@ Tag 4:
   map wird jetzt über eine txt datei erstellt Prinzip:
   
   a 0 0 0 1 0 0 0 a
+  
   a 0 0 0 1 0 0 0 a
+  
   a 0 2 2 3 2 2 0 a
+  
   a 0 2 4 4 4 2 0 a
+  
   a 0 2 4 4 4 2 0 a
+  
   a 0 2 4 4 4 2 0 a
+  
   a 0 2 2 2 2 2 0 a
+  
   a 0 0 0 0 0 0 0 a
   
   Für ein Haus(0 = erde; 1 = weg; 2 = Wand; 3 = Tür; 4 = Boden)
