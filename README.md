@@ -2,6 +2,7 @@
 SchoolGame
 Tag 1:
 
+
   Window erstellt, zu JFrame und JPanel eingelesen und as window angepasst.
   
   JPanel erstellt, versucht ein bild einzufügen;
@@ -15,8 +16,10 @@ Tag 1:
   GameCore mit Thread erstellt
   
   updated und draw
+  
  
 Tag 2:
+
 
   MapClass angefangen - 2 Stunden planlos daran gearbeitet.
   
@@ -28,7 +31,9 @@ Tag 2:
   
   Quadrat beweglich gemacht
   
+  
 Tag 3:
+
 
   Zu Images in JPanels eingelesen
   
@@ -38,7 +43,9 @@ Tag 3:
   
   PlayerClass ertsellt, mit Position und Bufferd Image und draw() und update() ausgelagert.
   
+  
 meanwhile: 
+
 
   TileClass erstellt, einzeles Feld der Map
   
@@ -46,7 +53,9 @@ meanwhile:
   
   (Map wird über die draw funktion manuell erstellt) !!Lösung!!
   
+  
 Tag 4:
+
   
   player movement Animiert über 2 abwechselnde Bilder
   
@@ -74,7 +83,9 @@ Tag 4:
   
   !! Problem Kollision
   
+  
 Tag 5:
+
 
   Kamera erstellt und fast das gesamte Koordinaten handling überarbeitet.
   
