@@ -98,5 +98,7 @@ Tag 6:
 Tag 7:
   
   Let Objects Exist; SuperClass vererbt name, id, draw, img, und position; ObjectManager plaziert die Objekte;
+  Erstellte Objekte: Coins; Door; Chest;
   
+  Next Step: Objekt interaktion
  
