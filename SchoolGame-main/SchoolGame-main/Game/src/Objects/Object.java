@@ -1,5 +1,6 @@
 package Objects;
 
+import Entitys.Player;
 import main.GamePanel;
 
 import java.awt.*;
@@ -12,6 +13,16 @@ public class Object {
     public int id;
     public boolean collision;
     public int wX, wY;
+    public Rectangle hitBox = new Rectangle(0,0,64,64);
+    public int hitBoxX = 0;
+    public int hitBoxY = 0;
+
+    public boolean interact(Player p) {
+        return false;
+    }
+    public void vanish(){
+        System.gc();
+    }
 
     public void draw(Graphics2D g2, GamePanel gp){
 

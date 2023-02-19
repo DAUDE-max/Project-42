@@ -17,12 +17,16 @@ public class Player extends Entity{
     public final int sX;
     public final int sY;
 
+    public int coinCount = 0;
+
     public Player(GamePanel gp, KeyManager kM){
         this.gp = gp;
         this.kM = kM;
         sX = (gp.mcol*gp.tileSize)/2 - gp.tileSize/2;
         sY = (gp.mrow*gp.tileSize)/2 - gp.tileSize/2;
         hitBox = new Rectangle(6,42,50,16);
+        hitBoxX = hitBox.x;
+        hitBoxY = hitBox.y;
 
 
         sDV();
@@ -69,8 +73,12 @@ public class Player extends Entity{
                 direction = "right";
             }
 
-            int[] b = gp.collison.checkTile(this);
+            //Object Collision
 
+
+            int[] b = gp.collison.checkTile(this);
+            int objID = gp.collison.checkObject(this,true);
+            collectItem(objID);
 
                 if (kM.upPressed && contains(b, 1)) {
                     wY -= speed;
@@ -101,6 +109,15 @@ public class Player extends Entity{
             eN = 1;
         }
 
+    }
+
+    public void collectItem(int i){
+        if(i != 404){
+            boolean vanish = gp.obj[i].interact(this);
+            if(vanish){
+                gp.obj[i]=null;
+            }
+        }
     }
     public void draw(Graphics2D g2){
         BufferedImage image = null;

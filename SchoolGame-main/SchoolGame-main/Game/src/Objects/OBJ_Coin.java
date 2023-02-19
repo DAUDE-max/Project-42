@@ -1,5 +1,7 @@
 package Objects;
 
+import Entitys.Player;
+
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
@@ -14,5 +16,13 @@ public class OBJ_Coin extends Object {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean interact(Player p) {
+        p.coinCount++;
+        return true;
+
+
     }
 }
