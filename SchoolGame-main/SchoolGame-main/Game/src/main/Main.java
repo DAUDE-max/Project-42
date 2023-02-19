@@ -13,6 +13,7 @@ class Main{
 
         window.add(gp);
         gp.startGameThread();
+        gp.setUp();
         window.pack();
         window.setLocationRelativeTo(null);
         window.setVisible(true);

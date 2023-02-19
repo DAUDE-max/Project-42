@@ -1,9 +1,10 @@
 package Entitys;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Entity {
-    public int x, y;
+    public int wX, wY;
     public int speed;
 
     public String direction;
@@ -12,5 +13,16 @@ public class Entity {
 
     public int eC = 0;
     public int eN = 1;
+
+    public Rectangle hitBox;
+
+    public boolean contains(final int[] array, final int key) {
+        for (final int i : array) {
+            if (i == key) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }

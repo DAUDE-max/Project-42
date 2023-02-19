@@ -14,16 +14,24 @@ public class Player extends Entity{
     GamePanel gp;
     KeyManager kM;
 
+    public final int sX;
+    public final int sY;
+
     public Player(GamePanel gp, KeyManager kM){
         this.gp = gp;
         this.kM = kM;
+        sX = (gp.mcol*gp.tileSize)/2 - gp.tileSize/2;
+        sY = (gp.mrow*gp.tileSize)/2 - gp.tileSize/2;
+        hitBox = new Rectangle(6,42,50,16);
+
+
         sDV();
         getPI();
     }
 
     public void sDV(){
-        x = 100;
-        y = 100;
+        wX = 50* gp.tileSize;
+        wY = 50* gp.tileSize;
         speed = 4;
         direction = "down";
     }
@@ -45,26 +53,40 @@ public class Player extends Entity{
         }
     }
 
+
     public void update(){
 
         if(kM.downPressed || kM.upPressed || kM.rightPressed || kM.leftPressed) {
 
             if (kM.upPressed) {
                 direction = "up";
-                y -= speed;
-
             } else if (kM.downPressed) {
                 direction = "down";
-                y += speed;
             }
-
             if (kM.leftPressed) {
                 direction = "left";
-                x -= speed;
             } else if (kM.rightPressed) {
                 direction = "right";
-                x += speed;
             }
+
+            int[] b = gp.collison.checkTile(this);
+
+
+                if (kM.upPressed && contains(b, 1)) {
+                    wY -= speed;
+                } else if (kM.downPressed && contains(b, 2))  {
+                    wY += speed;
+                }
+
+                if (kM.leftPressed && contains(b, 3)) {
+                    wX -= speed;
+                } else if (kM.rightPressed && contains(b, 4)) {
+                    wX += speed;
+                }
+
+
+
+
 
             eC++;
             if (eC > 10) {
@@ -105,6 +127,6 @@ public class Player extends Entity{
 
             }
         }
-        g2.drawImage(image, x,y,gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, sX,sY,gp.tileSize, gp.tileSize, null);
     }
 }
