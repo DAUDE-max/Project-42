@@ -101,4 +101,17 @@ Tag 7:
   Erstellte Objekte: Coins; Door; Chest;
   
   Next Step: Objekt interaktion
+  
+Tag 8: 
+  
+   objekte führen deren aufgaben in der Player class aus sobald sie durch objektCollision aktiviert wurden;
+   Objekte rufen jetzt eine activate methode aus wenn sie durch abjektCollision aktiviert werden;
+   
+   Coins werden im Player gezählt und sund bedingung für die Door und Chest activate();
+   
+ Tag 9:
+ 
+    SEG Alarm -> nach 8 Stunden einsatz ein paar Bilder designt und InteractiveTiles ins Leben geruf, die auf Abstract tiles angebracht werden sollen und über [E]      angefunkt werden können. Das alles aber noch nicht umgesetzt;
+   
+   !!! Umsetzen
  
