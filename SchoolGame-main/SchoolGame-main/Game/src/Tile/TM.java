@@ -1,5 +1,7 @@
 package Tile;
 
+import Tile.InteractiveTiles.Chest;
+import Tile.InteractiveTiles.Door;
 import main.GamePanel;
 
 import javax.imageio.ImageIO;
@@ -30,14 +32,23 @@ public class TM {
         try {
 
             tile[0] = new Tile();
-            tile[0].img = ImageIO.read(getClass().getResourceAsStream("/Tile/grass.png"));
+            tile[0].img = ImageIO.read(getClass().getResourceAsStream("/Tile/tree.png"));
+            tile[0].collision = true;
 
             tile[1] = new Tile();
-            tile[1].img = ImageIO.read(getClass().getResourceAsStream("/Tile/path.png"));
+            tile[1].img = ImageIO.read(getClass().getResourceAsStream("/Tile/wall.png"));
+            tile[1].collision = true;
 
             tile[2] = new Tile();
             tile[2].img = ImageIO.read(getClass().getResourceAsStream("/Tile/wood.png"));
-            tile[2].collision = true;
+
+
+            tile[3]= new Tile();
+            tile[3].img = ImageIO.read(getClass().getResourceAsStream("/Tile/grass.png"));
+
+            tile[4] = new Door();
+            tile[5] = new Chest();
+
 
 
         } catch (IOException e) {
