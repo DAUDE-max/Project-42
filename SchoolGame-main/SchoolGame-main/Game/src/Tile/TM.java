@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Objects;
 
 public class TM {
 
@@ -32,19 +33,19 @@ public class TM {
         try {
 
             tile[0] = new Tile();
-            tile[0].img = ImageIO.read(getClass().getResourceAsStream("/Tile/tree.png"));
+            tile[0].img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tile/tree.png")));
             tile[0].collision = true;
 
             tile[1] = new Tile();
-            tile[1].img = ImageIO.read(getClass().getResourceAsStream("/Tile/wall.png"));
+            tile[1].img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tile/wall.png")));
             tile[1].collision = true;
 
             tile[2] = new Tile();
-            tile[2].img = ImageIO.read(getClass().getResourceAsStream("/Tile/wood.png"));
+            tile[2].img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tile/wood.png")));
 
 
             tile[3]= new Tile();
-            tile[3].img = ImageIO.read(getClass().getResourceAsStream("/Tile/grass.png"));
+            tile[3].img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tile/grass.png")));
 
             tile[4] = new Door();
             tile[5] = new Chest();
@@ -60,6 +61,7 @@ public class TM {
 
     try {
         InputStream is = getClass().getResourceAsStream(url);
+        assert is != null;
         BufferedReader r = new BufferedReader(new InputStreamReader(is));
 
         int col = 0;

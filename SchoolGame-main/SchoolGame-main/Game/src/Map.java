@@ -11,8 +11,8 @@ public class Map {
     }
 
     public void buildMap(){
-        int c = panel.col;
-        int r = panel.row;
+        int c = panel.mcol;
+        int r = panel.mrow;
         int img = 0;
 
         for(int x = 0;x<c;x++){
