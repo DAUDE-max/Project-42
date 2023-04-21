@@ -65,6 +65,7 @@ public class GamePanel extends JPanel implements Runnable {
         public Collision collison = new Collision(this);
         public ObjectManager oM = new ObjectManager(this);
         public Player player = new Player(this, kM);
+    public ITM itm = new ITM(this, player);
         public Object[] obj = new Object[10];
 
     public void startGameThread(){
@@ -74,6 +75,7 @@ public class GamePanel extends JPanel implements Runnable {
 
    public void setUp(){
         oM.setObject();
+        itm.setUP();
    }
 
 
@@ -92,6 +94,11 @@ public class GamePanel extends JPanel implements Runnable {
         for (Object o:obj) {
             if(o!=null) {
                 o.draw(g2, this);
+            }
+        }
+        for(InteractiveTile i:itm.its){
+            if(i!=null){
+                i.draw(g2, this);
             }
         }
         //Player

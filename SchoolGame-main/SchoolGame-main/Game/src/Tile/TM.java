@@ -47,8 +47,7 @@ public class TM {
             tile[3]= new Tile();
             tile[3].img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tile/grass.png")));
 
-            tile[4] = new Door();
-            tile[5] = new Chest();
+
 
 
 

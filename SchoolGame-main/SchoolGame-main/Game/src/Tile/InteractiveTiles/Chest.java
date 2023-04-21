@@ -7,10 +7,12 @@ import javax.imageio.ImageIO;
 public class Chest extends InteractiveTile {
 
     boolean opened = false;
+
     public Chest(){
+        System.out.println("Eyoooo");
         collision=true;
         try{
-            img = ImageIO.read(getClass().getResourceAsStream("/Tile/chest_closed.png"));
+            img = ImageIO.read(getClass().getResourceAsStream("/Objects/chest_closed.png"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -20,7 +22,7 @@ public class Chest extends InteractiveTile {
 
         if(!opened){
             try{
-                img = ImageIO.read(getClass().getResourceAsStream("/Tile/chest_open.png"));
+                img = ImageIO.read(getClass().getResourceAsStream("/Objects/chest_open.png"));
             }catch (Exception e){
                 e.printStackTrace();
             }
