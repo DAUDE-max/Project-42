@@ -3,6 +3,7 @@ package Tile.InteractiveTiles;
 import Tile.InteractiveTile;
 
 import javax.imageio.ImageIO;
+import java.util.Objects;
 
 public class Chest extends InteractiveTile {
 
@@ -12,7 +13,7 @@ public class Chest extends InteractiveTile {
         System.out.println("Eyoooo");
         collision=true;
         try{
-            img = ImageIO.read(getClass().getResourceAsStream("/Objects/chest_closed.png"));
+            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tile/chest_closed.png")));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -22,7 +23,7 @@ public class Chest extends InteractiveTile {
 
         if(!opened){
             try{
-                img = ImageIO.read(getClass().getResourceAsStream("/Objects/chest_open.png"));
+                img = ImageIO.read(getClass().getResourceAsStream("/Tile/chest_open.png"));
             }catch (Exception e){
                 e.printStackTrace();
             }

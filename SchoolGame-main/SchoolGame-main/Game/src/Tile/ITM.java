@@ -27,4 +27,11 @@ public class ITM {
         its[1].wX = gp.tileSize*52;
         its[1].wY = gp.tileSize*46;
     }
+
+    public void update() {
+        if(gp.kM.ePressed) {
+            gp.kM.ePressed = false;
+
+        }
+    }
 }

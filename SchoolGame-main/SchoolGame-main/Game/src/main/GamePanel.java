@@ -59,7 +59,7 @@ public class GamePanel extends JPanel implements Runnable {
     // FunktionelleKlassen
 
         TM tm = new TM(this);
-        KeyManager kM= new KeyManager();
+        public KeyManager kM= new KeyManager();
         Thread gameThread;
 
         public Collision collison = new Collision(this);

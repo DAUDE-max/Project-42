@@ -109,6 +109,7 @@ public class Player extends Entity{
             eN = 1;
         }
 
+
     }
 
     public void collectItem(int i){

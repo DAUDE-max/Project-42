@@ -3,13 +3,14 @@ package Tile.InteractiveTiles;
 import Tile.InteractiveTile;
 
 import javax.imageio.ImageIO;
+import java.util.Objects;
 
 public class Door extends InteractiveTile {
 
     public Door(){
         collision = true;
         try{
-            img = ImageIO.read(getClass().getResourceAsStream("/Tile/door_closed.png"));
+            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tile/door_closed.png")));
         }catch (Exception e){
             e.printStackTrace();
         }

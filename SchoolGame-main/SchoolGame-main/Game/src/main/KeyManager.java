@@ -41,6 +41,7 @@ public class KeyManager implements KeyListener{
             case KeyEvent.VK_S -> downPressed = false;
             case KeyEvent.VK_A -> leftPressed = false;
             case KeyEvent.VK_D -> rightPressed = false;
+            case KeyEvent.VK_E -> ePressed = false;
         }
 
 
