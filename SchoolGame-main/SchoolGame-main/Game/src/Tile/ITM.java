@@ -19,12 +19,12 @@ public class ITM {
     public void setUP(){
 
         its[0] = new Chest();
-        its[0].wX = 3200;
-        its[0].wY = 2900;
+        its[0].wX = gp.tileSize* 54;
+        its[0].wY = gp.tileSize* 46;
 
 
         its[1] = new Door();
-        its[1].wX = 3300;
-        its[1].wY = 3000;
+        its[1].wX = gp.tileSize*52;
+        its[1].wY = gp.tileSize*46;
     }
 }

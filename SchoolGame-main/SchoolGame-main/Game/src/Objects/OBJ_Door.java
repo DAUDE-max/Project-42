@@ -9,7 +9,7 @@ public class OBJ_Door extends Object{
         id = 2001;
         name = "Door";
         try{
-            img = ImageIO.read(getClass().getResourceAsStream("/Objects/door.png"));
+            img = ImageIO.read(getClass().getResourceAsStream("/Tile/door_closed.png"));
         }catch (IOException e){
             e.printStackTrace();
         }

@@ -11,7 +11,7 @@ public class OBJ_Chest extends Object{
         id=2002;
         name = "Chest";
         try{
-            img = ImageIO.read(getClass().getResourceAsStream("/Objects/chest.png"));
+            img = ImageIO.read(getClass().getResourceAsStream("/Objects/chest_closed.png"));
         }catch (IOException e){
             e.printStackTrace();
         }
