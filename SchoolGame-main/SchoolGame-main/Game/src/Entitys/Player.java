@@ -16,6 +16,7 @@ public class Player extends Entity{
 
     public final int sX;
     public final int sY;
+    int accspeed = speed;
 
     public int coinCount = 0;
 
@@ -81,15 +82,15 @@ public class Player extends Entity{
             collectItem(objID);
 
                 if (kM.upPressed && contains(b, 1)) {
-                    wY -= speed;
+                    wY -= accspeed;
                 } else if (kM.downPressed && contains(b, 2))  {
-                    wY += speed;
+                    wY += accspeed;
                 }
 
                 if (kM.leftPressed && contains(b, 3)) {
-                    wX -= speed;
+                    wX -= accspeed;
                 } else if (kM.rightPressed && contains(b, 4)) {
-                    wX += speed;
+                    wX += accspeed;
                 }
 
 
