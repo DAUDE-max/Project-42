@@ -10,7 +10,6 @@ public class Chest extends InteractiveTile {
     boolean opened = false;
 
     public Chest(){
-        System.out.println("Eyoooo");
         collision=true;
         try{
             img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tile/chest_closed.png")));

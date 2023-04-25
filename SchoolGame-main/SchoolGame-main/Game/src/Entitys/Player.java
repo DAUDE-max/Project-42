@@ -75,7 +75,7 @@ public class Player extends Entity{
 
             //Object Collision
 
-
+            accspeed = speed;
             int[] b = gp.collison.checkTile(this);
             int objID = gp.collison.checkObject(this,true);
             collectItem(objID);
