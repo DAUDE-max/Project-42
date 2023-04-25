@@ -31,6 +31,7 @@ public class Player extends Entity{
         hitBoxY = hitBox.y;
 
 
+
         sDV();
         getPI();
     }
