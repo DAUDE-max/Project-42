@@ -37,22 +37,22 @@ public class ITM {
             for (InteractiveTile t : its) {
                 switch (p.direction) {
                     case "right" -> {
-                        if (t.wY < p.wY+64 && t.wY > p.wY-32 && t.wX < p.wX+160 && t.wX > p.wX+32) {
+                        if (t.wX > p.wX-32 && t.wX < p.wX+96 && t.wY > p.wY+64 && t.wY < p.wY+160) {
                             t.action();
                         }
                     }
                     case "left" -> {
-                        if (t.wY < p.wY+64 && t.wY > p.wY-32 && t.wX < p.wX-96 && t.wX > p.wX+32) {
+                        if (t.wX > p.wX-96 && t.wX < p.wX && t.wY > p.wY-32 && t.wY < p.wY+96) {
                             t.action();
                         }
                     }
                     case "up" -> {
-                        if (t.wX < p.wX+64 && t.wX > p.wX-32 && t.wY < p.wY+160 && t.wY > p.wY+32) {
+                        if (t.wX > p.wX-32 && t.wX < p.wX+96 && t.wY > p.wY-96 && t.wY < p.wY) {
                             t.action();
                         }
                     }
                     case "down" -> {
-                        if (t.wX < p.wX+64 && t.wX > p.wX-32 && t.wY < p.wY-96 && t.wY > p.wY+32) {
+                        if (t.wX > p.wX-32 && t.wX < p.wX+96 && t.wY > p.wY+64 && t.wY < p.wY-160) {
                             t.action();
                         }
                     }
