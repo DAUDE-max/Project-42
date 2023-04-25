@@ -1,6 +1,7 @@
 package main;
 
 import Entitys.Entity;
+import Tile.InteractiveTile;
 
 public class Collision {
 
@@ -80,6 +81,79 @@ public class Collision {
 
     }
 
+    public InteractiveTile checkIT(Entity e, boolean p){
+        InteractiveTile of = null;
+
+        for(InteractiveTile i :gp.itm.its){
+            if(i != null){
+
+                //Coords e und obj vergleichen
+                e.hitBox.x = e.wX + e.hitBox.x;
+                e.hitBox.y = e.wY + e.hitBox.y;
+
+                i.hitBox.x = i.wX + i.hitBox.x;
+                i.hitBox.y = i.wY + i.hitBox.y;
+
+                switch (e.direction) {
+                    case "up" -> {
+                        e.hitBox.y += e.speed;
+                        if (e.hitBox.intersects(i.hitBox)) {
+
+                            if(i.collision){
+                                e.colli = true;
+                            }
+                            if(p){
+                                of = i;
+                            }
+                        }
+                    }
+                    case "down" -> {
+                        e.hitBox.y -= e.speed;
+                        if (e.hitBox.intersects(i.hitBox)) {
+                            if(i.collision){
+                                e.colli = true;
+                            }
+                            if(p){
+                                of = i;
+                            }
+                        }
+                    }
+                    case "right" -> {
+                        e.hitBox.x += e.speed;
+                        if (e.hitBox.intersects(i.hitBox)) {
+                            if(i.collision){
+                                e.colli = true;
+                            }
+                            if(p){
+                                of = i;
+                            }
+                        }
+                    }
+                    case "left" -> {
+                        e.hitBox.x -= e.speed;
+                        if (e.hitBox.intersects(i.hitBox)) {
+                            if(i.collision){
+                                e.colli = true;
+                            }
+                            if(p){
+                                of = i;
+                            }
+                        }
+                    }
+                }
+                e.hitBox.x = e.hitBoxX;
+                e.hitBox.y = e.hitBoxY;
+                i.hitBox.x = i.hitBoxX;
+                i.hitBox.y = i.hitBoxY;
+
+            }
+        }
+
+
+
+        return of;
+    }
+
     public int checkObject(Entity e, boolean p){
         int index = 404;
 
@@ -147,6 +221,8 @@ public class Collision {
 
             }
         }
+
+
 
         return index;
     }

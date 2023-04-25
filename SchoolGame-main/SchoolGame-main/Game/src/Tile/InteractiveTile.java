@@ -8,9 +8,7 @@ import java.awt.image.BufferedImage;
 public class InteractiveTile{
 
     public BufferedImage img;
-    int id;
-    int wX;
-    int wY;
+    public int wY,id,wX;
     public boolean collision;
     public Rectangle hitBox = new Rectangle(0,0,64,64);
     public int hitBoxX = 0;

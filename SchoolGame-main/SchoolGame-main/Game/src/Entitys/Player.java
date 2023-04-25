@@ -1,5 +1,6 @@
 package Entitys;
 
+import Tile.InteractiveTile;
 import main.GamePanel;
 import main.KeyManager;
 
@@ -80,6 +81,7 @@ public class Player extends Entity{
             int[] b = gp.collison.checkTile(this);
             int objID = gp.collison.checkObject(this,true);
             collectItem(objID);
+            interact(gp.collison.checkIT(this,true));
 
                 if (kM.upPressed && contains(b, 1)) {
                     wY -= accspeed;
@@ -112,6 +114,21 @@ public class Player extends Entity{
 
 
     }
+    void interact(InteractiveTile t){
+        if(t==null)return;
+        if(!t.collision){t.action(); return; }
+        accspeed = 0;
+        switch (direction){
+
+            case "right" ->   wX-=1;
+            case "left" ->    wX+=1;
+            case "up" ->   wY += 1;
+            case "down" ->   accspeed -= 1;
+        }
+        t.action();
+    }
+
+
 
     public void collectItem(int i){
         if(i != 404){

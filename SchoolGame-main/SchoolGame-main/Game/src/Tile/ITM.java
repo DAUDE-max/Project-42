@@ -7,11 +7,14 @@ import main.GamePanel;
 
 public class ITM {
     GamePanel gp;
+    Player p;
     public InteractiveTile[] its;
 
     public ITM(GamePanel gp, Player p) {
         this.gp = gp;
         its = new InteractiveTile[10];
+        this.p = p;
+        update();
 
     }
 
