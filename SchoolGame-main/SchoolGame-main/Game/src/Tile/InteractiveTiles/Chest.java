@@ -9,6 +9,7 @@ public class Chest extends InteractiveTile {
 
     boolean opened = false;
 
+
     public Chest(){
         collision=true;
         try{
@@ -16,6 +17,10 @@ public class Chest extends InteractiveTile {
         }catch (Exception e){
             e.printStackTrace();
         }
+        hitBox.x = 1;
+        hitBox.y = 14;
+        hitBox.width = 63;
+        hitBox.height = 46;
     }
     @Override
     public void action() {

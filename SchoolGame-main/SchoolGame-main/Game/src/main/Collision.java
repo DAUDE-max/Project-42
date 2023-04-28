@@ -96,7 +96,7 @@ public class Collision {
 
                 switch (e.direction) {
                     case "up" -> {
-                        e.hitBox.y += e.speed;
+                        e.hitBox.y -= e.speed;
                         if (e.hitBox.intersects(i.hitBox)) {
 
                             if(i.collision){
@@ -108,7 +108,7 @@ public class Collision {
                         }
                     }
                     case "down" -> {
-                        e.hitBox.y -= e.speed;
+                        e.hitBox.y += e.speed;
                         if (e.hitBox.intersects(i.hitBox)) {
                             if(i.collision){
                                 e.colli = true;

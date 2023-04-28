@@ -1,6 +1,5 @@
 package main;
 
-import Objects.OBJ_Chest;
 import Objects.OBJ_Coin;
 
 public class ObjectManager {

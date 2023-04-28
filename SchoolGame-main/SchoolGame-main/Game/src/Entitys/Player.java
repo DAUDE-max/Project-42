@@ -117,16 +117,9 @@ public class Player extends Entity{
     }
     void interact(InteractiveTile t){
         if(t==null)return;
-        if(!t.collision){t.action(); return; }
+        if(!t.collision){return; }
         accspeed = 0;
-        switch (direction){
 
-            case "right" ->   wX-=1;
-            case "left" ->    wX+=1;
-            case "up" ->   wY += 1;
-            case "down" ->   accspeed -= 1;
-        }
-        t.action();
     }
 
 
