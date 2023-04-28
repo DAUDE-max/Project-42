@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 
 public class KeyManager implements KeyListener{
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed, ePressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, ePressed, tabPressed;
 
 
 
@@ -26,6 +26,7 @@ public class KeyManager implements KeyListener{
             case KeyEvent.VK_A -> leftPressed = true;
             case KeyEvent.VK_D -> rightPressed = true;
             case KeyEvent.VK_E -> ePressed = true;
+            case KeyEvent.VK_TAB -> tabPressed = true;
         }
 
 
@@ -42,6 +43,7 @@ public class KeyManager implements KeyListener{
             case KeyEvent.VK_A -> leftPressed = false;
             case KeyEvent.VK_D -> rightPressed = false;
             case KeyEvent.VK_E -> ePressed = false;
+            case KeyEvent.VK_TAB -> tabPressed = false;
         }
 
 
