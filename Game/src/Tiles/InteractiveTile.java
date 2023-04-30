@@ -6,15 +6,19 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class InteractiveTile{
-
+    /** A Tile to be interactive:
+     * It can be solid
+     * It can be activated by pushing 'E' if in range*/
+    //Default
     public BufferedImage img;
-    public int wY,id,wX;
+    public int wY,wX;
     public boolean collision;
+    //Hitbox
     public Rectangle hitBox = new Rectangle(0,0,64,64);
     public int hitBoxX = 0;
     public int hitBoxY = 0;
 
-
+    //Draw
     public void draw(Graphics2D g2, GamePanel gp){
 
         int sX = wX - gp.player.wX + gp.player.sX;
@@ -29,13 +33,8 @@ public class InteractiveTile{
             g2.drawImage(img, sX, sY, GamePanel.tileSize, GamePanel.tileSize, null);
         }
     }
-    /* ToDo:
-    *   -   If e pressed 1 block range and faced -> activate
-    *   -   If more then one block is interactive take closest
-    *   -   only blocks the player is not standing on are interactive
-    *       (means Door anly when not on them closable, standad interactive blocks are collision true)
-    *   -   Uses = Chest + Door  */
 
+    //empty super action method
     public void action(){}
 
 
