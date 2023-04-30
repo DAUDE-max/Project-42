@@ -1,7 +1,7 @@
 package main;
 
-import Entitys.Entity;
-import Tile.InteractiveTile;
+import Entities.Entity;
+import Tiles.InteractiveTile;
 
 public class Collision {
 
@@ -19,10 +19,10 @@ public class Collision {
         int t = e.wY + e.hitBox.y;
         int b = e.wY + e.hitBox.y + e.hitBox.height;
         // Hitbox rand Col row
-        int lc = (l)/gp.tileSize ;
-        int rc = (r)/gp.tileSize ;
-        int tr = (t)/gp.tileSize ;
-        int br = (b)/gp.tileSize ;
+        int lc = (l)/ GamePanel.tileSize;
+        int rc = (r)/ GamePanel.tileSize;
+        int tr = (t)/ GamePanel.tileSize;
+        int br = (b)/ GamePanel.tileSize;
 
 
 
@@ -36,10 +36,10 @@ public class Collision {
 
 
                 case 1 -> {
-                    int ntr = (t - e.speed) / gp.tileSize;
-                    tN1 = gp.tm.mTN[lc][ntr];
-                    tN2 = gp.tm.mTN[rc][ntr];
-                    if (gp.tm.tile[tN1].collision || gp.tm.tile[tN2].collision) {
+                    int ntr = (t - e.speed) / GamePanel.tileSize;
+                    tN1 = gp.tileManager.mTN[lc][ntr];
+                    tN2 = gp.tileManager.mTN[rc][ntr];
+                    if (gp.tileManager.tile[tN1].collision || gp.tileManager.tile[tN2].collision) {
                         blockings[0]= 1;
                     }
                 }
@@ -47,30 +47,30 @@ public class Collision {
 
 
                 case 2 -> {
-                    int nbr = (b + e.speed) / gp.tileSize;
-                    tN1 = gp.tm.mTN[lc][nbr];
-                    tN2 = gp.tm.mTN[rc][nbr];
-                    if (gp.tm.tile[tN1].collision || gp.tm.tile[tN2].collision) {
+                    int nbr = (b + e.speed) / GamePanel.tileSize;
+                    tN1 = gp.tileManager.mTN[lc][nbr];
+                    tN2 = gp.tileManager.mTN[rc][nbr];
+                    if (gp.tileManager.tile[tN1].collision || gp.tileManager.tile[tN2].collision) {
                         blockings[1]= 2;
                     }
                 }
 
 
                 case 3 -> {
-                    int nlc = (l - e.speed) / gp.tileSize;
-                    tN1 = gp.tm.mTN[nlc][tr];
-                    tN2 = gp.tm.mTN[nlc][br];
-                    if (gp.tm.tile[tN1].collision || gp.tm.tile[tN2].collision) {
+                    int nlc = (l - e.speed) / GamePanel.tileSize;
+                    tN1 = gp.tileManager.mTN[nlc][tr];
+                    tN2 = gp.tileManager.mTN[nlc][br];
+                    if (gp.tileManager.tile[tN1].collision || gp.tileManager.tile[tN2].collision) {
                         blockings[2]= 3;
                     }
                 }
 
 
                 case 4 -> {
-                    int nrc = (r + e.speed) / gp.tileSize;
-                    tN1 = gp.tm.mTN[nrc][tr];
-                    tN2 = gp.tm.mTN[nrc][br];
-                    if (gp.tm.tile[tN1].collision || gp.tm.tile[tN2].collision) {
+                    int nrc = (r + e.speed) / GamePanel.tileSize;
+                    tN1 = gp.tileManager.mTN[nrc][tr];
+                    tN2 = gp.tileManager.mTN[nrc][br];
+                    if (gp.tileManager.tile[tN1].collision || gp.tileManager.tile[tN2].collision) {
                         blockings[3]= 4;
                     }
                 }
@@ -84,7 +84,7 @@ public class Collision {
     public InteractiveTile checkIT(Entity e, boolean p){
         InteractiveTile of = null;
 
-        for(InteractiveTile i :gp.itm.its){
+        for(InteractiveTile i :gp.interactiveTileManager.its){
             if(i != null){
 
                 //Coords e und obj vergleichen

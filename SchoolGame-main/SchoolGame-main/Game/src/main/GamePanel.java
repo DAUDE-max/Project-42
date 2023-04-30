@@ -1,111 +1,136 @@
 package main;
 
-import Entitys.Player;
-import Objects.Object;
-import Tile.*;
+import Entities.Player;
+import Items.Item;
+import Tiles.*;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
 
-    // ScreenKonstanten
-    public final int tileSize = 64;
-    public int mcol = 30;
-    public int mrow = 18;
+    // Screen constants
+    public static final int tileSize = 64;
+    public static final int columns = 30;
+    public static final int rows = 18;
+    public static final int fps = 60;
 
-    double FPS = 60;
-
-    //WeltKonstanten
-    public final int mWC = 100;
-    public final int mWR = 100;
-    public final int wW = mWC * tileSize;
-    public final int wH = mWR * tileSize;
+    // World constants
+    public static final int maxColumns = 100;
+    public static final int maxRows = 100;
 
 
-    // Construktor
-    GamePanel(){
-        this.setPreferredSize(new Dimension(mcol*tileSize,mrow*tileSize));
+    private Thread gameThread;
+    private int tickLength;
+    public Inventory inventory = new Inventory(this);
+
+    public Collision collision = new Collision(this);
+    public ItemManager objectManager = new ItemManager(this);
+    public KeyManager keyManager = new KeyManager(this);
+    public MouseWheelManager mouseWheelManager = new MouseWheelManager(this);
+    public TileManager tileManager = new TileManager(this);
+    public InteractiveTileManager interactiveTileManager = new InteractiveTileManager(this);
+    public Item[] obj = new Item[10];
+    public final Player player = new Player(this);
+
+    public int getScreenWidth() {
+        return columns * tileSize;
+    }
+
+    public int getScreenHeight() {
+        return rows * tileSize;
+    }
+
+
+    /**
+     * Constructor
+     */
+    GamePanel() {
+        this.setPreferredSize(new Dimension(this.getScreenWidth(), this.getScreenHeight()));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
-        this.addKeyListener(kM);
+        this.addKeyListener(keyManager);
+        this.addMouseWheelListener(mouseWheelManager);
         this.setFocusable(true);
+        this.tickLength = 1000_000_000 / fps;
     }
 
-    // GameCore
+    /**
+     * Implements the run method of Runnable, runs in its own thread
+     * Repaints the UI every number of nanoseconds specified in tickLength
+     */
     @Override
-    public void run(){
-
-        double dI = 1000000000/FPS;
-        double delta = 0;
-        long lastTime = System.nanoTime();
+    public void run() {
         long currentTime;
+        long latestTime = 0;
 
-        while(gameThread != null) {
-
+        // Execute only while game thread is running
+        while (this.gameThread != null) {
             currentTime = System.nanoTime();
-            delta += (currentTime - lastTime) / dI;
-            lastTime = currentTime;
 
-
-            if(delta >= 1) {
-                update();
-                repaint();
-            delta--;
+            // Check if it is time to repaint
+            if (currentTime - latestTime >= this.tickLength) {
+                latestTime = currentTime;
+                this.update();
+                this.repaint();
             }
         }
     }
 
-    // FunktionelleKlassen
-
-        TM tm = new TM(this);
-        public KeyManager kM= new KeyManager();
-        Thread gameThread;
-
-        public Collision collison = new Collision(this);
-        public ObjectManager oM = new ObjectManager(this);
-        public Player player = new Player(this, kM);
-    public ITM itm = new ITM(this, player);
-        public Object[] obj = new Object[10];
-
-    public void startGameThread(){
-        gameThread = new Thread(this);
-        gameThread.start();
+    /**
+     * Start thread for refreshing the UI
+     */
+    public void startGameThread() {
+        this.gameThread = new Thread(this);
+        this.gameThread.start();
     }
 
-   public void setUp(){
-        oM.setObject();
-        itm.setUP();
-   }
-
-
-
-    public void update(){
-        player.update();
-        itm.update();
+    /**
+     * Initialize game components
+     */
+    public void setup() {
+        this.objectManager.setObject();
+        this.interactiveTileManager.setup();
     }
 
-    public void paintComponent(Graphics g){
-        super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D)g;
+    /**
+     * Update game components, gets called periodically
+     */
+    public void update() {
+        this.player.update();
+    }
 
-        //Tiles
-        tm.draw(g2);
-        //Objects
-        for (Object o:obj) {
-            if(o!=null) {
-                o.draw(g2, this);
+    /**
+     * Overrides paintComponent method of JPanel
+     * Paints all game components, e.g. tiles, objects onto screen
+     */
+    @Override
+    public void paintComponent(Graphics graphics) {
+        super.paintComponent(graphics);
+        Graphics2D graphics2d = (Graphics2D) graphics;
+
+        // Tiles
+        tileManager.draw(graphics2d);
+
+        // Interactive tiles
+        for (InteractiveTile i : interactiveTileManager.its) {
+            if (i != null) {
+                i.draw(graphics2d, this);
             }
         }
-        for(InteractiveTile i:itm.its){
-            if(i!=null){
-                i.draw(g2, this);
+
+        // Objects
+        for (Item o : obj) {
+            if (o != null) {
+                o.draw(graphics2d, this);
             }
         }
-        //Player
-        player.draw(g2);
 
-        g2.dispose();
+        // Player
+        player.draw(graphics2d);
+        inventory.draw(graphics2d);
+
+        graphics2d.dispose();
     }
 
 }

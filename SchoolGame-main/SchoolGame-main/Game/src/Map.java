@@ -11,13 +11,13 @@ public class Map {
     }
 
     public void buildMap(){
-        int c = panel.mcol;
-        int r = panel.mrow;
+        int c = GamePanel.columns;
+        int r = GamePanel.rows;
         int img = 0;
 
         for(int x = 0;x<c;x++){
             for(int y = 0; y<r; y++){
-                new Tile(x*panel.tileSize,y*panel.tileSize,img);
+                new Tile(x* GamePanel.tileSize,y* GamePanel.tileSize,img);
             }
         }
     }
