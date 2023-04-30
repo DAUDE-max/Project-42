@@ -25,13 +25,13 @@ public class GamePanel extends JPanel implements Runnable {
     public Inventory inventory = new Inventory(this);
 
     public Collision collision = new Collision(this);
-    public ItemManager objectManager = new ItemManager(this);
+    public ItemManager itemManager = new ItemManager(this);
     public KeyManager keyManager = new KeyManager(this);
     public MouseWheelManager mouseWheelManager = new MouseWheelManager(this);
     public TileManager tileManager = new TileManager(this);
+    public final Player player = new Player(this);
     public InteractiveTileManager interactiveTileManager = new InteractiveTileManager(this);
     public Item[] obj = new Item[10];
-    public final Player player = new Player(this);
 
     public int getScreenWidth() {
         return columns * tileSize;
@@ -89,7 +89,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Initialize game components
      */
     public void setup() {
-        this.objectManager.setObject();
+        this.itemManager.setObject();
         this.interactiveTileManager.setup();
     }
 
@@ -98,6 +98,7 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void update() {
         this.player.update();
+        this.interactiveTileManager.update();
     }
 
     /**
