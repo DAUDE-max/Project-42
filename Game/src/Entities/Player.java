@@ -127,9 +127,9 @@ public class Player extends Entity{
     //Item collecting
     public void collectItem(int i){
         if(i != 404){
-            boolean vanish = gp.obj[i].interact(gp);
+            boolean vanish = gp.itemManager.obj[i].interact(gp);
             if(vanish){
-                gp.obj[i]=null;
+                gp.itemManager.obj[i]=null;
             }
         }
     }

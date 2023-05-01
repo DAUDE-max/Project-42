@@ -3,12 +3,16 @@ package Tiles;
 import Entities.Player;
 import Tiles.InteractiveTiles.Chest;
 import Tiles.InteractiveTiles.Door;
+import Tiles.InteractiveTiles.Pot;
 import main.GamePanel;
 
 public class InteractiveTileManager {
+    //Referenzen
     GamePanel gp;
     Player p;
+    //Array
     public InteractiveTile[] its;
+    int index = 0;
 
     public InteractiveTileManager(GamePanel gp) {
         this.gp = gp;
@@ -18,21 +22,37 @@ public class InteractiveTileManager {
 
     }
 
-    public void setup() {
+    public void summon(int wX, int wY, String id, boolean special) {
 
-        its[0] = new Chest(gp);
-        its[0].wX = GamePanel.tileSize * 54;
-        its[0].wY = GamePanel.tileSize * 46;
+        switch (id){
+            case "chest" -> {
+                its[index] = new Chest(gp);
+                its[index].wX = GamePanel.tileSize * wX;
+                its[index].wY = GamePanel.tileSize * wY;
+                index++;
+            }
+            case "door" -> {
+                its[index] = new Door(gp);
+                its[index].wX = GamePanel.tileSize * wX;
+                its[index].wY = GamePanel.tileSize * wY;
+                index++;
+            }
+            case "pot" -> {
+                its[index] = new Pot(gp, special);
+                its[index].wX = GamePanel.tileSize * wX;
+                its[index].wY = GamePanel.tileSize * wY;
+                index++;
+            }
+        }
 
+    }
 
-        its[1] = new Door(gp);
-        its[1].wX = GamePanel.tileSize * 52;
-        its[1].wY = GamePanel.tileSize * 46;
-
-        its[2] = new Door(gp);
-        its[2].wX = GamePanel.tileSize * 45;
-        its[2].wY = GamePanel.tileSize * 46;
-
+    public void kill(InteractiveTile interactiveTile){
+        for (int i = 0; i< its.length;i++) {
+            if(its[i] == interactiveTile){
+                its[i]=null;
+            }
+        }
     }
 
     public void update() {

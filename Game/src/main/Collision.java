@@ -158,22 +158,22 @@ public class Collision {
     public int checkItems(Entity e, boolean p){
         int index = 404;
 
-        for(int i = 0; i < gp.obj.length;i++){
-            if(gp.obj[i] != null){
+        for(int i = 0; i < gp.itemManager.obj.length;i++){
+            if(gp.itemManager.obj[i] != null){
 
                 //Coords e und obj vergleichen
                 e.hitBox.x = e.wX + e.hitBox.x;
                 e.hitBox.y = e.wY + e.hitBox.y;
 
-                gp.obj[i].hitBox.x = gp.obj[i].wX + gp.obj[i].hitBox.x;
-                gp.obj[i].hitBox.y = gp.obj[i].wY + gp.obj[i].hitBox.y;
+                gp.itemManager.obj[i].hitBox.x = gp.itemManager.obj[i].wX + gp.itemManager.obj[i].hitBox.x;
+                gp.itemManager.obj[i].hitBox.y = gp.itemManager.obj[i].wY + gp.itemManager.obj[i].hitBox.y;
 
                 switch (e.direction) {
                     case "up" -> {
                         e.hitBox.y += e.speed;
-                        if (e.hitBox.intersects(gp.obj[i].hitBox)) {
+                        if (e.hitBox.intersects(gp.itemManager.obj[i].hitBox)) {
 
-                            if(gp.obj[i].collision){
+                            if(gp.itemManager.obj[i].collision){
                                 e.collision = true;
                             }
                             if(p){
@@ -183,8 +183,8 @@ public class Collision {
                     }
                     case "down" -> {
                         e.hitBox.y -= e.speed;
-                        if (e.hitBox.intersects(gp.obj[i].hitBox)) {
-                            if(gp.obj[i].collision){
+                        if (e.hitBox.intersects(gp.itemManager.obj[i].hitBox)) {
+                            if(gp.itemManager.obj[i].collision){
                                 e.collision = true;
                             }
                             if(p){
@@ -194,8 +194,8 @@ public class Collision {
                     }
                     case "right" -> {
                         e.hitBox.x += e.speed;
-                        if (e.hitBox.intersects(gp.obj[i].hitBox)) {
-                            if(gp.obj[i].collision){
+                        if (e.hitBox.intersects(gp.itemManager.obj[i].hitBox)) {
+                            if(gp.itemManager.obj[i].collision){
                                 e.collision = true;
                             }
                             if(p){
@@ -205,8 +205,8 @@ public class Collision {
                     }
                     case "left" -> {
                         e.hitBox.x -= e.speed;
-                        if (e.hitBox.intersects(gp.obj[i].hitBox)) {
-                            if(gp.obj[i].collision){
+                        if (e.hitBox.intersects(gp.itemManager.obj[i].hitBox)) {
+                            if(gp.itemManager.obj[i].collision){
                                 e.collision = true;
                             }
                             if(p){
@@ -217,8 +217,8 @@ public class Collision {
                 }
                 e.hitBox.x = e.hitBoxX;
                 e.hitBox.y = e.hitBoxY;
-                gp.obj[i].hitBox.x = gp.obj[i].hitBoxX;
-                gp.obj[i].hitBox.y = gp.obj[i].hitBoxY;
+                gp.itemManager.obj[i].hitBox.x = gp.itemManager.obj[i].hitBoxX;
+                gp.itemManager.obj[i].hitBox.y = gp.itemManager.obj[i].hitBoxY;
 
             }
         }

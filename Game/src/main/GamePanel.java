@@ -31,7 +31,7 @@ public class GamePanel extends JPanel implements Runnable {
     public TileManager tileManager = new TileManager(this);
     public final Player player = new Player(this);
     public InteractiveTileManager interactiveTileManager = new InteractiveTileManager(this);
-    public Item[] obj = new Item[10];
+
 
     public int getScreenWidth() {
         return columns * tileSize;
@@ -89,8 +89,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Initialize game components
      */
     public void setup() {
-        this.itemManager.setObject();
-        this.interactiveTileManager.setup();
+        Setup setup = new Setup(this);
     }
 
     /**
@@ -121,7 +120,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
 
         // Objects
-        for (Item o : obj) {
+        for (Item o : itemManager.obj) {
             if (o != null) {
                 o.draw(graphics2d, this);
             }

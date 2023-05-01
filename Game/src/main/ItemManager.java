@@ -1,6 +1,7 @@
 package main;
 
 import Items.CoinItem;
+import Items.Item;
 
 public class ItemManager {
     //Interface
@@ -8,14 +9,22 @@ public class ItemManager {
     //Constructor
     public ItemManager(GamePanel gp){
         this.gp = gp;
-
     }
 
-    //Manages item placement
-    public void setObject(){
+    //Array of all Items and the index
+    public Item[] obj = new Item[10];
+    int index = 0;
 
-        gp.obj[1] = new CoinItem();
-        gp.obj[1].wX = 3300;
-        gp.obj[1].wY = 3000;
+
+
+    public void summon(int wX, int wY, String id){
+        switch(id){
+            case "coin" ->{
+                obj[index] = new CoinItem();
+                obj[index].wX = wX * GamePanel.tileSize;
+                obj[index].wY = wY * GamePanel.tileSize;
+                index++;
+            }
+        }
     }
 }
