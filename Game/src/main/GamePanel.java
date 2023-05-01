@@ -116,7 +116,7 @@ public class GamePanel extends JPanel implements Runnable {
         // Interactive tiles
         for (InteractiveTile i : interactiveTileManager.its) {
             if (i != null) {
-                i.draw(graphics2d, this);
+                i.draw(graphics2d);
             }
         }
 

@@ -1,5 +1,6 @@
 package Tiles;
 
+import Entities.Player;
 import main.GamePanel;
 
 import java.awt.*;
@@ -10,6 +11,7 @@ public class InteractiveTile{
      * It can be solid
      * It can be activated by pushing 'E' if in range*/
     //Default
+    public GamePanel gp;
     public BufferedImage img;
     public int wY,wX;
     public boolean collision;
@@ -18,8 +20,13 @@ public class InteractiveTile{
     public int hitBoxX = 0;
     public int hitBoxY = 0;
 
+    public InteractiveTile(GamePanel gp){
+        this.gp = gp;
+    }
+
+
     //Draw
-    public void draw(Graphics2D g2, GamePanel gp){
+    public void draw(Graphics2D g2){
 
         int sX = wX - gp.player.wX + gp.player.sX;
         int sY = wY - gp.player.wY + gp.player.sY;

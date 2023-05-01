@@ -20,15 +20,18 @@ public class InteractiveTileManager {
 
     public void setup() {
 
-        its[0] = new Chest();
+        its[0] = new Chest(gp);
         its[0].wX = GamePanel.tileSize * 54;
         its[0].wY = GamePanel.tileSize * 46;
 
 
-        its[1] = new Door();
+        its[1] = new Door(gp);
         its[1].wX = GamePanel.tileSize * 52;
         its[1].wY = GamePanel.tileSize * 46;
 
+        its[2] = new Door(gp);
+        its[2].wX = GamePanel.tileSize * 45;
+        its[2].wY = GamePanel.tileSize * 46;
 
     }
 

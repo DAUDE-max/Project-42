@@ -1,16 +1,16 @@
 package main;
 
-import Items.CoinItem;
+
 import Items.InventoryItem;
 import Items.Item;
-import Tiles.Tile;
+
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
-import java.util.Vector;
+
 
 /**
  * Inventory class
@@ -117,6 +117,20 @@ public class Inventory {
         }
 
         return item;
+    }
+
+    /**
+     * Peeks for the type of Item selected
+     */
+
+    public Item peekItem(){
+        InventoryItem slotContent = slotContents[this.selectedSlotIndex];
+        Item item = null;
+        if(slotContent!=null) {
+            item = slotContents[this.selectedSlotIndex].type;
+        }
+        return item;
+
     }
 
     /**

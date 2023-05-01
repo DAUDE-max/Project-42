@@ -1,16 +1,20 @@
 package Tiles.InteractiveTiles;
 
+import Items.CoinItem;
 import Tiles.InteractiveTile;
 
 import javax.imageio.ImageIO;
 import java.util.Objects;
+import Entities.Player;
+import main.GamePanel;
 
 public class Chest extends InteractiveTile {
 
     boolean opened = false;
 
 
-    public Chest(){
+    public Chest(GamePanel gp){
+        super(gp);
         collision=true;
         try{
             img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tiles/chest_closed.png")));
@@ -26,6 +30,8 @@ public class Chest extends InteractiveTile {
     public void action() {
 
         if(!opened){
+            if(!checkCoin())return;
+            gp.inventory.retrieveItem();
             try{
                 img = ImageIO.read(getClass().getResourceAsStream("/Tiles/chest_open.png"));
             }catch (Exception e){
@@ -33,5 +39,9 @@ public class Chest extends InteractiveTile {
             }
             //weiß Gott was
         }
+    }
+
+    public boolean checkCoin(){
+        return gp.inventory.peekItem() instanceof CoinItem;
     }
 }

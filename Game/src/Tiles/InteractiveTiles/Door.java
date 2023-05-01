@@ -4,10 +4,13 @@ import Tiles.InteractiveTile;
 
 import javax.imageio.ImageIO;
 import java.util.Objects;
+import Entities.Player;
+import main.GamePanel;
 
 public class Door extends InteractiveTile {
 
-    public Door(){
+    public Door(GamePanel gp){
+        super(gp);
         collision = true;
         try{
             img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tiles/door_closed.png")));
