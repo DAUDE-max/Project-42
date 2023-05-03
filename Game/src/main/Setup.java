@@ -19,6 +19,7 @@ public class Setup {
         interactiveTileManager.summon(54,46, "chest", false);
         interactiveTileManager.summon(52,46, "door", false );
         interactiveTileManager.summon(45,46, "door", false );
+        interactiveTileManager.summon(45,53, "door", false );
         interactiveTileManager.summon(48, 41, "pot", true);
     }
 }

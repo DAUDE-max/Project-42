@@ -61,7 +61,7 @@ public class InteractiveTileManager {
             if (t == null) break;
             switch (p.direction) {
                 case "right" -> {
-                    if (t.wX > p.wX + 32 && t.wX < p.wX + 160 && t.wY > p.wY - 32 && t.wY < p.wY + 96) {
+                    if (t.wX > p.wX + 32 && t.wX < p.wX + 96 && t.wY > p.wY - 32 && t.wY < p.wY + 96) {
                         t.action();
                     }
                 }
@@ -71,12 +71,12 @@ public class InteractiveTileManager {
                     }
                 }
                 case "up" -> {
-                    if (t.wX > p.wX - 32 && t.wX < p.wX + 96 && t.wY > p.wY - 96 && t.wY < p.wY) {
+                    if (t.wX > p.wX - 32 && t.wX < p.wX + 96 && t.wY > p.wY - 64 && t.wY < p.wY) {
                         t.action();
                     }
                 }
                 case "down" -> {
-                    if (t.wX > p.wX - 32 && t.wX < p.wX + 96 && t.wY > p.wY + 32 && t.wY < p.wY + 160) {
+                    if (t.wX > p.wX - 32 && t.wX < p.wX + 96 && t.wY > p.wY + 32 && t.wY < p.wY + 96) {
                         t.action();
                     }
                 }

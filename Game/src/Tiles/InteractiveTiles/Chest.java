@@ -36,6 +36,7 @@ public class Chest extends InteractiveTile {
             }catch (Exception e){
                 e.printStackTrace();
             }
+            opened = true;
             //weiß Gott was
         }
     }
