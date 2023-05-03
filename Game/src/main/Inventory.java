@@ -88,13 +88,19 @@ public class Inventory {
     /**
      * Insert item at the first free inventory slot or stack
      */
-    public void addItem(Item item) {
+    boolean[] slotUsed = new boolean[9];
+    public void addItem(Item item, int itemID) {
         for (int i = 0; i < AppSettings.inventorySlots; i++) {
-            if (slotContents[i] == null) {
-                slotContents[i] = new InventoryItem(item, (byte ) 1);
+            if(slotUsed[i]) {
+                if (slotContents[i].itemID == itemID && !slotContents[i].isFull()) {
+                    slotContents[i].quantity++;
+                    break;
+                }
+            }
+            else if (slotContents[i] == null) {
+                slotContents[i] = new InventoryItem(item, (byte) 1, itemID);
+                slotUsed[i] = true;
                 break;
-            } else if (slotContents[i].type == item && !slotContents[i].isFull()) {
-                slotContents[i].quantity++;
             }
         }
     }
