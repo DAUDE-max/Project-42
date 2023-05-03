@@ -36,6 +36,8 @@ public class Inventory {
     private BufferedImage slotImage;
     private InventoryItem[] slotContents;
 
+    private boolean[] slotUsed = new boolean[9];
+
 
     public Inventory(GamePanel gp) {
         this.gp = gp;
@@ -88,7 +90,6 @@ public class Inventory {
     /**
      * Insert item at the first free inventory slot or stack
      */
-    boolean[] slotUsed = new boolean[9];
     public void addItem(Item item, int itemID) {
         for (int i = 0; i < AppSettings.inventorySlots; i++) {
             if(slotUsed[i]) {
@@ -117,6 +118,7 @@ public class Inventory {
 
             if(slotContent.quantity == 1){
                 slotContents[this.selectedSlotIndex] = null;
+                slotUsed[this.selectedSlotIndex] = false;
             } else {
                 slotContent.quantity--;
             }

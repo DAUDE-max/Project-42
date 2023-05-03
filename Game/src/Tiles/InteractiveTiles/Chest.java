@@ -29,8 +29,7 @@ public class Chest extends InteractiveTile {
     @Override
     public void action() {
 
-        if(!opened){
-            if(!checkCoin())return;
+        if(!opened && checkCoin()){
             gp.inventory.retrieveItem();
             try{
                 img = ImageIO.read(getClass().getResourceAsStream("/Tiles/chest_open.png"));
