@@ -11,8 +11,8 @@ public class GamePanel extends JPanel implements Runnable {
 
     // Screen constants
     public static final int tileSize = 64;
-    public static final int columns = 30;
-    public static final int rows = 18;
+    public static final int columns = AppSettings.desktopWidth/64;
+    public static final int rows = AppSettings.desktopHight/64;
     public static final int fps = 60;
 
     // World constants
@@ -34,11 +34,11 @@ public class GamePanel extends JPanel implements Runnable {
 
 
     public int getScreenWidth() {
-        return columns * tileSize;
+        return AppSettings.desktopWidth;
     }
 
     public int getScreenHeight() {
-        return rows * tileSize;
+        return AppSettings.desktopHight;
     }
 
 
@@ -46,7 +46,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Constructor
      */
     GamePanel() {
-        this.setPreferredSize(new Dimension(this.getScreenWidth(), this.getScreenHeight()));
+        this.setPreferredSize(new Dimension(AppSettings.desktopWidth, AppSettings.desktopHight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyManager);

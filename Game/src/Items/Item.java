@@ -24,6 +24,7 @@ public class Item {
     public void vanish(){
         System.gc();
     }
+
     //Draw
     public void draw(Graphics2D g2, GamePanel gp){
 
