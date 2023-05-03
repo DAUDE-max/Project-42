@@ -22,7 +22,7 @@ public class TileManager {
         tile = new Tile[10];
         gti();
         mTN = new int[GamePanel.maxColumns][GamePanel.maxRows];
-        loadMap("/maps/map1.txt");
+        loadMap("/maps/1.map");
     }
 
 
@@ -68,7 +68,7 @@ public class TileManager {
 
             String line = r.readLine();
             while(col < GamePanel.maxRows){
-                String[] numbers = line.split(" ");
+                String[] numbers = line.split(";");
                 int num = Integer.parseInt(numbers[col]);
                 mTN[col][row] = num;
                 col++;

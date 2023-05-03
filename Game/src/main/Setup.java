@@ -15,10 +15,10 @@ public class Setup {
     }
 
     public void setUp() {
-        itemManager.summon(50, 55, "coin");
+        itemManager.summon(42, 41, "coin");
         interactiveTileManager.summon(54,46, "chest", false);
         interactiveTileManager.summon(52,46, "door", false );
         interactiveTileManager.summon(45,46, "door", false );
-        interactiveTileManager.summon(45, 50, "pot", true);
+        interactiveTileManager.summon(48, 41, "pot", true);
     }
 }
