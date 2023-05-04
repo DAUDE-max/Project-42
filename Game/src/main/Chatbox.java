@@ -41,10 +41,30 @@ public class Chatbox {
 
     }
 
-    public void write(String npc){
-    switch(npc){
-        case "test" -> {
+    public void setMessageByKey (String key) {
+        String filename = "/chat/" + key + ".chat";
+        String message = loadMessageFromFile(filename);
+        setMessage(message);
     }
+
+    private void setMessage(String message) {
+        this.selectedText = message;
+        repaint();
+    }
+
+    private String loadMessageFromFile(String filename) {
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
+    }
+    
 
     public void draw(Graphics g){
         int x = positionX;
