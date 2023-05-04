@@ -26,6 +26,11 @@ public class Chatbox {
         this.positionX = 0;
         this.positionY = totalHeight/3;
         
+        try {
+            this.img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/HUD/chatBox.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }
