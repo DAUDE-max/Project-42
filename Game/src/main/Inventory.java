@@ -90,10 +90,10 @@ public class Inventory {
     /**
      * Insert item at the first free inventory slot or stack
      */
-    public void addItem(Item item, int itemID) {
+    public void addItem(Item item) {
         for (int i = 0; i < AppSettings.inventorySlots; i++) {
             if(slotUsed[i]) {
-                if (slotContents[i].itemID == itemID && !slotContents[i].isFull()) {
+                if (slotContents[i].itemID == item.itemID && !slotContents[i].isFull()) {
                     slotContents[i].quantity++;
                     break;
                 }
