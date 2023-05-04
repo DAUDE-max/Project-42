@@ -45,6 +45,22 @@ public class Chatbox {
     switch(npc){
         case "test" -> {
     }
+
+    public void draw(Graphics g){
+        int x = positionX;
+        int y = positionY;
+        FontMetrics fm = g.getFontMetrics();
+        String[] words = selectedText.split("\\s+");
+        for (String word : words) {
+            int wordWidth = fm.stringWidth(word);
+            if (x + wordWidth > maxWidth) {
+                x = positionX;
+                y += fm.getHeight();
+            }
+            g.drawString(word, x, y);
+            x += wordWidth + fm.stringWidth(" ");
+        }
+    }
 }
 
  */
