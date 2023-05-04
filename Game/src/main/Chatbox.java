@@ -24,6 +24,7 @@ public class Chatbox {
     private final int positionY;
 
     private BufferedImage img;
+    private String selectedText;
 
     public Chatbox(GamePanel gp) {
         this.gp = gp;
@@ -38,6 +39,11 @@ public class Chatbox {
             e.printStackTrace();
         }
 
+    }
+
+    public void write(String npc){
+    switch(npc){
+        case "test" -> {
     }
 }
 
