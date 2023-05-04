@@ -21,7 +21,7 @@ public class CoinItem extends Item {
     //Action
     @Override
     public boolean interact(GamePanel gp) {
-        gp.inventory.addItem(this, id);
+        gp.inventory.addItem(this);
         return true;
 
 
