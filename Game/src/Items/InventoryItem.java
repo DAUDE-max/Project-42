@@ -8,10 +8,10 @@ public class InventoryItem {
     public byte quantity;
     public int itemID;
 
-    public InventoryItem(Item type, byte quantity, int itemID){
+    public InventoryItem(Item type, byte quantity){
         this.type = type;
         this.quantity = quantity;
-        this.itemID = itemID;
+        this.itemID = this.type.id;
     }
 
     public boolean isFull() {

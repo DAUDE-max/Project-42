@@ -15,6 +15,7 @@ public class Item {
     //Img and collision
     public BufferedImage img;
     public boolean collision;
+    public int id;
 
     //Super method for all following item actions
     public boolean interact(GamePanel p) {

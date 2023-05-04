@@ -31,6 +31,7 @@ public class GamePanel extends JPanel implements Runnable {
     public TileManager tileManager = new TileManager(this);
     public final Player player = new Player(this);
     public InteractiveTileManager interactiveTileManager = new InteractiveTileManager(this);
+    public Chatbox chatBox = new Chatbox(this);
 
 
     public int getScreenWidth() {
@@ -129,6 +130,7 @@ public class GamePanel extends JPanel implements Runnable {
         // Player
         player.draw(graphics2d);
         inventory.draw(graphics2d);
+        chatBox.draw(graphics2d);
 
         graphics2d.dispose();
     }

@@ -7,8 +7,6 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public class CoinItem extends Item {
-
-    public int id = 1;
     //Constructor
     public CoinItem(){
 
@@ -16,12 +14,14 @@ public class CoinItem extends Item {
             img = ImageIO.read(getClass().getResourceAsStream("/Items/coin.png"));
         }catch (IOException e){
             e.printStackTrace();
+            this.id = 1;
         }
     }
     //Action
     @Override
     public boolean interact(GamePanel gp) {
         gp.inventory.addItem(this);
+        gp.chatBox.setMessageByKey("coin");
         return true;
 
 

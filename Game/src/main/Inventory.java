@@ -55,7 +55,7 @@ public class Inventory {
         this.itemPositionY = this.slotPositionY + AppSettings.inventorySlotPadding;
 
         try {
-            this.slotImage = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Inventory/inventory_slot.png")));
+            this.slotImage = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/hud/inventory_slot.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -99,7 +99,7 @@ public class Inventory {
                 }
             }
             else if (slotContents[i] == null) {
-                slotContents[i] = new InventoryItem(item, (byte) 1, itemID);
+                slotContents[i] = new InventoryItem(item, (byte) 1);
                 slotUsed[i] = true;
                 break;
             }
