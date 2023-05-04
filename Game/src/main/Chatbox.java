@@ -23,9 +23,12 @@ public class Chatbox {
     private final int positionX;
     private final int positionY;
 
+    private final int margine = 10; //fürs erste konstant
+
     private BufferedImage img;
     private String selectedText;
-
+    
+    //Constrctor
     public Chatbox(GamePanel gp) {
         this.gp = gp;
         this.totalWidth = AppSettings.screenWidth/4;
@@ -40,18 +43,13 @@ public class Chatbox {
         }
 
     }
-
+    //Selects URL by a request from ouzside the class
     public void setMessageByKey (String key) {
         String filename = "/chat/" + key + ".chat";
-        String message = loadMessageFromFile(filename);
-        setMessage(message);
+        this.selectedText = loadMessageFromFile(filename);
     }
-
-    private void setMessage(String message) {
-        this.selectedText = message;
-        repaint();
-    }
-
+    
+    // Reads the files String
     private String loadMessageFromFile(String filename) {
         StringBuilder sb = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
@@ -65,7 +63,7 @@ public class Chatbox {
         return sb.toString();
     }
     
-
+        //Draws and looks for line breaks
     public void draw(Graphics g){
         int x = positionX;
         int y = positionY;
