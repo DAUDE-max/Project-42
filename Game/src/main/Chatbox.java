@@ -7,6 +7,12 @@ import java.awt.image.BufferedImage;
 public class Chatbox {
     public final GamePanel gp;
 
+    /**
+    * Soll Stings aus .chat abrufen
+    * Soll Strings passen innder Box ausgeben
+    */
+
+
 
     // Dimensions
     private final int totalWidth;
