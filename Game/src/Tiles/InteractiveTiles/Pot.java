@@ -14,7 +14,7 @@ public class Pot extends InteractiveTile {
      * */
 
     boolean coinInside;
-    public Pot(GamePanel gp,boolean coinInside) {
+    public Pot(GamePanel gp,String coinInside) {
         super(gp);
         collision = true;
         try{
@@ -26,7 +26,7 @@ public class Pot extends InteractiveTile {
         hitBox.y = 9;
         hitBox.width = 40;
         hitBox.height = 52;
-        this.coinInside = coinInside;
+        this.coinInside = (coinInside=="true");
     }
 
     @Override

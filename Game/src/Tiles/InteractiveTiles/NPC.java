@@ -29,6 +29,8 @@ public class NPC extends InteractiveTile {
 
 
 
+
+
     @Override
     public void action() {
         gp.chatBox.setMessageByKey(name);

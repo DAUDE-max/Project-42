@@ -1,6 +1,8 @@
 package main;
 
 import javax.imageio.ImageIO;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.Style;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -51,7 +53,6 @@ public class Chatbox {
     //Selects URL by a request from ouzside the class
     public void setMessageByKey (String key) {
         String filename = "/hud/chats/" + key + ".chat";
-        System.out.println(filename);
         this.selectedText = loadMessageFromFile(filename);
     }
     
@@ -86,6 +87,7 @@ public class Chatbox {
         if(selectedText==null)return;
         int x = positionX + margineX;
         int y = positionY + margineY;
+        g2.setFont(new Font("Arial", Font.BOLD, 18));
         FontMetrics fm = g2.getFontMetrics();
         String[] words = selectedText.split("\\s+");
         for (String word : words) {

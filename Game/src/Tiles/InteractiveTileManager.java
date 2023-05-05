@@ -23,7 +23,7 @@ public class InteractiveTileManager {
 
     }
 
-    public void summon(int wX, int wY, String id, boolean special) {
+    public void summon(int wX, int wY, String id, String[] special) {
 
         switch (id){
             case "chest" -> {
@@ -39,7 +39,7 @@ public class InteractiveTileManager {
                 index++;
             }
             case "pot" -> {
-                its[index] = new Pot(gp, special);
+                its[index] = new Pot(gp, special[0]);
                 its[index].wX = GamePanel.tileSize * wX;
                 its[index].wY = GamePanel.tileSize * wY;
                 index++;
