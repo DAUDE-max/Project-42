@@ -13,7 +13,7 @@ public class Chatbox {
 
     /**
     * Soll Stings aus .chat abrufen
-    * Soll Strings passen innder Box ausgeben
+    * Soll Strings passend in der Box ausgeben
     */
 
 

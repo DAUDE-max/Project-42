@@ -19,6 +19,8 @@ public class Player extends Entity{
     public final int sY;
     int accspeed = speed;
 
+    public boolean controlsLocked = false;
+
     /**Constructor, setting Interfaces, position and hitbox
      * And applying default Values and player images */
     public Player(GamePanel gp){
@@ -62,31 +64,31 @@ public class Player extends Entity{
 
 
     public void update(){
+        if(!controlsLocked) {
+            if (kM.downPressed || kM.upPressed || kM.rightPressed || kM.leftPressed) {
 
-        if(kM.downPressed || kM.upPressed || kM.rightPressed || kM.leftPressed) {
+                if (kM.upPressed) {
+                    direction = "up";
+                } else if (kM.downPressed) {
+                    direction = "down";
+                }
+                if (kM.leftPressed) {
+                    direction = "left";
+                } else if (kM.rightPressed) {
+                    direction = "right";
+                }
 
-            if (kM.upPressed) {
-                direction = "up";
-            } else if (kM.downPressed) {
-                direction = "down";
-            }
-            if (kM.leftPressed) {
-                direction = "left";
-            } else if (kM.rightPressed) {
-                direction = "right";
-            }
+                //Object Collision
 
-            //Object Collision
-
-            accspeed = speed;
-            int[] b = gp.collision.checkTile(this);
-            int objID = gp.collision.checkItems(this,true);
-            collectItem(objID);
-            interact(gp.collision.checkIT(this,true));
+                accspeed = speed;
+                int[] b = gp.collision.checkTile(this);
+                int objID = gp.collision.checkItems(this, true);
+                collectItem(objID);
+                interact(gp.collision.checkIT(this, true));
 
                 if (kM.upPressed && contains(b, 1)) {
                     wY -= accspeed;
-                } else if (kM.downPressed && contains(b, 2))  {
+                } else if (kM.downPressed && contains(b, 2)) {
                     wY += accspeed;
                 }
 
@@ -97,20 +99,19 @@ public class Player extends Entity{
                 }
 
 
-
-
-    //Switches direction images
-            eC++;
-            if (eC > 10) {
-                if (eN == 1) {
-                    eN = 2;
-                } else if (eN == 2) {
-                    eN = 1;
+                //Switches direction images
+                eC++;
+                if (eC > 10) {
+                    if (eN == 1) {
+                        eN = 2;
+                    } else if (eN == 2) {
+                        eN = 1;
+                    }
+                    eC = 0;
                 }
-                eC = 0;
+            } else {
+                eN = 1;
             }
-        }else{
-            eN = 1;
         }
 
 
@@ -161,5 +162,13 @@ public class Player extends Entity{
             }
         }
         g2.drawImage(image, sX,sY, GamePanel.tileSize, GamePanel.tileSize, null);
+    }
+
+    public void disableControls(){
+        controlsLocked = true;
+    }
+
+    public void enableControls(){
+        controlsLocked = false;
     }
 }

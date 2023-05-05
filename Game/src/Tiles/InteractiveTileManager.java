@@ -3,6 +3,7 @@ package Tiles;
 import Entities.Player;
 import Tiles.InteractiveTiles.Chest;
 import Tiles.InteractiveTiles.Door;
+import Tiles.InteractiveTiles.NPC;
 import Tiles.InteractiveTiles.Pot;
 import main.GamePanel;
 
@@ -39,6 +40,12 @@ public class InteractiveTileManager {
             }
             case "pot" -> {
                 its[index] = new Pot(gp, special);
+                its[index].wX = GamePanel.tileSize * wX;
+                its[index].wY = GamePanel.tileSize * wY;
+                index++;
+            }
+            case "npc" -> {
+                its[index] = new NPC(gp, special);
                 its[index].wX = GamePanel.tileSize * wX;
                 its[index].wY = GamePanel.tileSize * wY;
                 index++;

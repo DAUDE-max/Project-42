@@ -37,6 +37,7 @@ public class Chest extends InteractiveTile {
                 e.printStackTrace();
             }
             opened = true;
+            gp.chatBox.setMessageByKey("chest");
             //weiß Gott was
         }
     }

@@ -12,21 +12,25 @@ public class NPC extends InteractiveTile {
        eine chatbox erscheint mit Name von NPC, und eigenen Text, der über mehrere 'pages' geht, die man mit e skippen kann
        (Text + Name von npc in extra Datei angeben)
      */
-    public NPC(GamePanel gp) {
+
+    String name;
+    public NPC(GamePanel gp, String[] args) {
         super(gp);
         collision = true;
 
         try{
-            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tiles/door_closed.png")));
+            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/npc/"+ args[0]+".png")));
         }catch (Exception e){
             e.printStackTrace();
         }
+        this.name = args[0];
+
     }
 
 
 
     @Override
     public void action() {
-
+        gp.chatBox.setMessageByKey(name);
     }
 }
