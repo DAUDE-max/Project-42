@@ -14,10 +14,12 @@ public class NPC extends InteractiveTile {
      */
 
     String name;
+    int chatIndex = 0;
+    int maxChatIndex;
     public NPC(GamePanel gp, String[] args) {
         super(gp);
         collision = true;
-
+        maxChatIndex = Integer.parseInt(args[1]);
         try{
             img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/npc/"+ args[0]+".png")));
         }catch (Exception e){
@@ -33,6 +35,14 @@ public class NPC extends InteractiveTile {
 
     @Override
     public void action() {
-        gp.chatBox.setMessageByKey(name);
+        if(chatIndex < maxChatIndex) {
+            gp.chatBox.setMessageByKey(name + chatIndex);
+            chatIndex++;
+        }
+        else {
+            chatIndex = 0;
+            gp.chatBox.setMessageByKey(name + chatIndex);
+            chatIndex ++;
+        }
     }
 }

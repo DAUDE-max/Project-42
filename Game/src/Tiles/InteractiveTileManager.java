@@ -7,12 +7,15 @@ import Tiles.InteractiveTiles.NPC;
 import Tiles.InteractiveTiles.Pot;
 import main.GamePanel;
 
+import java.util.ArrayList;
+
 public class InteractiveTileManager {
     //Referenzen
     GamePanel gp;
     Player p;
     //Array
     public InteractiveTile[] its;
+    public ArrayList<InteractiveTile> its1 = new ArrayList<>();
     int index = 0;
 
     public InteractiveTileManager(GamePanel gp) {
@@ -20,7 +23,6 @@ public class InteractiveTileManager {
         its = new InteractiveTile[10];
         this.p = gp.player;
         update();
-
     }
 
     public void summon(int wX, int wY, String id, String[] special) {

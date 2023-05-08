@@ -1,6 +1,7 @@
 package Entities;
 
 import Tiles.InteractiveTile;
+import main.AppSettings;
 import main.GamePanel;
 import main.KeyManager;
 
@@ -26,8 +27,8 @@ public class Player extends Entity{
     public Player(GamePanel gp){
         this.gp = gp;
         this.kM = gp.keyManager;
-        sX = (GamePanel.columns * GamePanel.tileSize)/2 - GamePanel.tileSize /2;
-        sY = (GamePanel.rows * GamePanel.tileSize)/2 - GamePanel.tileSize /2;
+        sX = (AppSettings.desktopWidth)/2 - GamePanel.tileSize /2;
+        sY = (AppSettings.desktopHight)/2 - GamePanel.tileSize /2;
         hitBox = new Rectangle(6,42,50,16);
         hitBoxX = hitBox.x;
         hitBoxY = hitBox.y;
