@@ -20,8 +20,10 @@ public class InteractiveTile{
     public int hitBoxX = 0;
     public int hitBoxY = 0;
 
-    public InteractiveTile(GamePanel gp){
+    public InteractiveTile( int wX,int wY,GamePanel gp){
         this.gp = gp;
+        this.wX = wX;
+        this.wY = wY;
     }
 
 

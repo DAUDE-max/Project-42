@@ -22,6 +22,9 @@ public class Player extends Entity{
 
     public boolean controlsLocked = false;
 
+
+
+
     /**Constructor, setting Interfaces, position and hitbox
      * And applying default Values and player images */
     public Player(GamePanel gp){

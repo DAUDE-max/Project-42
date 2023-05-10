@@ -1,7 +1,6 @@
 package main;
 
 import Entities.Player;
-import Items.Item;
 import Tiles.*;
 
 import javax.swing.JPanel;
@@ -19,7 +18,7 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int maxColumns = 100;
     public static final int maxRows = 100;
 
-
+    public  GameGraph gameGraph = new GameGraph();
     private Thread gameThread;
     private int tickLength;
     public Inventory inventory = new Inventory(this);
@@ -32,6 +31,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final Player player = new Player(this);
     public InteractiveTileManager interactiveTileManager = new InteractiveTileManager(this);
     public Chatbox chatBox = new Chatbox(this);
+    public Shop shop;
 
 
     public int getScreenWidth() {
@@ -110,29 +110,8 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(graphics);
         Graphics2D graphics2d = (Graphics2D) graphics;
 
-        // Tiles
-        tileManager.draw(graphics2d);
-
-        // Interactive tiles
-        for (InteractiveTile i : interactiveTileManager.its) {
-            if (i != null) {
-                i.draw(graphics2d);
-            }
-        }
-
-        // Objects
-        for (Item o : itemManager.obj) {
-            if (o != null) {
-                o.draw(graphics2d, this);
-            }
-        }
-
-        // Player
-        player.draw(graphics2d);
-        inventory.draw(graphics2d);
-        chatBox.draw(graphics2d);
+        gameGraph.draw(this, graphics2d);
 
         graphics2d.dispose();
     }
-
 }

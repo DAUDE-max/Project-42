@@ -13,8 +13,8 @@ public class Chest extends InteractiveTile {
     boolean opened = false;
 
 
-    public Chest(GamePanel gp){
-        super(gp);
+    public Chest(int wX,int wY,GamePanel gp){
+        super(wX,wY,gp);
         collision=true;
         try{
             img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tiles/chest_closed.png")));

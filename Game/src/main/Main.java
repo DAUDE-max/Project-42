@@ -7,7 +7,7 @@ class Main{
         // Configure window manager
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setTitle("2D-Game");
+        window.setTitle("S-RPG");
         window.setResizable(true);
 
         // Create GamePanel, add it to window and start game

@@ -14,8 +14,8 @@ public class Pot extends InteractiveTile {
      * */
 
     boolean coinInside;
-    public Pot(GamePanel gp,String coinInside) {
-        super(gp);
+    public Pot(int wX,int wY,GamePanel gp,String coinInside) {
+        super(wX,wY,gp);
         collision = true;
         try{
             img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tiles/pot.png")));

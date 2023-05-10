@@ -9,8 +9,8 @@ import main.GamePanel;
 
 public class Door extends InteractiveTile {
 
-    public Door(GamePanel gp){
-        super(gp);
+    public Door(int wX,int wY, GamePanel gp){
+        super(wX,wY,gp);
         collision = true;
         try{
             img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tiles/door_closed.png")));

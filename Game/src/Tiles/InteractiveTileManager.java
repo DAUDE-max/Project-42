@@ -3,7 +3,8 @@ package Tiles;
 import Entities.Player;
 import Tiles.InteractiveTiles.Chest;
 import Tiles.InteractiveTiles.Door;
-import Tiles.InteractiveTiles.NPC;
+import Tiles.InteractiveTiles.NPC.Jeff;
+import Tiles.InteractiveTiles.NPC.NPC;
 import Tiles.InteractiveTiles.Pot;
 import main.GamePanel;
 
@@ -14,54 +15,46 @@ public class InteractiveTileManager {
     GamePanel gp;
     Player p;
     //Array
-    public InteractiveTile[] its;
-    public ArrayList<InteractiveTile> its1 = new ArrayList<>();
-    int index = 0;
+    public ArrayList<InteractiveTile> its = new ArrayList<>();
 
     public InteractiveTileManager(GamePanel gp) {
         this.gp = gp;
-        its = new InteractiveTile[10];
         this.p = gp.player;
         update();
     }
 
-    public void summon(int wX, int wY, String id, String[] special) {
-
+    public void summon(int wX, int wY, String id, String[] special) {;
         switch (id){
             case "chest" -> {
-                its[index] = new Chest(gp);
-                its[index].wX = GamePanel.tileSize * wX;
-                its[index].wY = GamePanel.tileSize * wY;
-                index++;
+                wX *= GamePanel.tileSize;
+                wY *= GamePanel.tileSize;
+                its.add(new Chest(wX,wY,gp));
             }
             case "door" -> {
-                its[index] = new Door(gp);
-                its[index].wX = GamePanel.tileSize * wX;
-                its[index].wY = GamePanel.tileSize * wY;
-                index++;
+                wX *= GamePanel.tileSize;
+                wY *= GamePanel.tileSize;
+                its.add(new Door(wX,wY,gp));
             }
             case "pot" -> {
-                its[index] = new Pot(gp, special[0]);
-                its[index].wX = GamePanel.tileSize * wX;
-                its[index].wY = GamePanel.tileSize * wY;
-                index++;
+                wX *= GamePanel.tileSize;
+                wY *= GamePanel.tileSize;
+                its.add(new Pot(wX,wY,gp, special[0]));
             }
             case "npc" -> {
-                its[index] = new NPC(gp, special);
-                its[index].wX = GamePanel.tileSize * wX;
-                its[index].wY = GamePanel.tileSize * wY;
-                index++;
+                switch (special[0]){
+                    case "jeff" -> {
+                        wX *= GamePanel.tileSize;
+                        wY *= GamePanel.tileSize;
+                        its.add( new Jeff(wX,wY,gp, special));
+                    }
+                }
             }
         }
 
     }
 
     public void kill(InteractiveTile interactiveTile){
-        for (int i = 0; i< its.length;i++) {
-            if(its[i] == interactiveTile){
-                its[i]=null;
-            }
-        }
+       its.remove(interactiveTile);
     }
 
     public void update() {
