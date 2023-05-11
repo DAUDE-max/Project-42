@@ -1,6 +1,7 @@
 package Tiles.InteractiveTiles.NPC;
 
 import main.GamePanel;
+import main.Shop;
 
 public class Jeff extends NPC {
     public Jeff(int wX,int wY,GamePanel gp, String[] args) {
@@ -9,7 +10,7 @@ public class Jeff extends NPC {
 
     @Override
    public void act1(){
-        gp.shop = new Shop(new String[]{"3"});
+        gp.shop = new Shop(new String[]{"1", "keyItem"});
         gp.player.controlsLocked = true;
     }
 
