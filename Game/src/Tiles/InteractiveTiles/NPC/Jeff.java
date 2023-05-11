@@ -1,7 +1,6 @@
 package Tiles.InteractiveTiles.NPC;
 
 import main.GamePanel;
-import main.Shop;
 
 public class Jeff extends NPC {
     public Jeff(int wX,int wY,GamePanel gp, String[] args) {

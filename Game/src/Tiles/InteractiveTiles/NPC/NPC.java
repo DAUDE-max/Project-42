@@ -2,7 +2,6 @@ package Tiles.InteractiveTiles.NPC;
 
 import Tiles.InteractiveTile;
 import main.GamePanel;
-import main.Shop;
 
 import javax.imageio.ImageIO;
 import java.util.Objects;

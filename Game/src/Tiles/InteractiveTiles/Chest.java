@@ -1,6 +1,7 @@
 package Tiles.InteractiveTiles;
 
 import Items.CoinItem;
+import Items.KeyItem;
 import Tiles.InteractiveTile;
 
 import javax.imageio.ImageIO;
@@ -29,7 +30,7 @@ public class Chest extends InteractiveTile {
     @Override
     public void action() {
 
-        if(!opened && checkCoin()){
+        if(!opened && checkKey()){
             gp.inventory.retrieveItem();
             try{
                 img = ImageIO.read(getClass().getResourceAsStream("/Tiles/chest_open.png"));
@@ -42,7 +43,7 @@ public class Chest extends InteractiveTile {
         }
     }
 
-    public boolean checkCoin(){
-        return gp.inventory.peekItem() instanceof CoinItem;
+    public boolean checkKey(){
+        return gp.inventory.peekItem() instanceof KeyItem;
     }
 }

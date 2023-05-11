@@ -17,6 +17,7 @@ public class Shop {
     int margin;
     int yOffset;
     private BufferedImage slotImage;
+    String[] itemsOffered;
 
 
     public Shop(String[] args){
@@ -26,6 +27,12 @@ public class Shop {
             e.printStackTrace();
         }
         this.offerCount = Integer.parseInt(args[0]);
+        this.itemsOffered = new String[offerCount];
+
+        for (int i = 1; i < offerCount; i++) {
+            this.itemsOffered[i] = args[i];
+        }
+
         margin  = totalWidth/(3*offerCount+1);
         totalHeight = 4 * margin;
         yOffset = (totalHeight-2*margin)/2;
