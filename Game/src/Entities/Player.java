@@ -168,11 +168,11 @@ public class Player extends Entity{
         g2.drawImage(image, sX,sY, GamePanel.tileSize, GamePanel.tileSize, null);
     }
 
-    public void disableControls(){
-        controlsLocked = true;
+    public static void increaseSpeed(int i) {
+        speed += i;
     }
 
-    public void enableControls(){
-        controlsLocked = false;
+    public void decreaseSpeed(int i) {
+        speed -= i;
     }
 }

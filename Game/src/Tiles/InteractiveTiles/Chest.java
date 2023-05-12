@@ -44,6 +44,6 @@ public class Chest extends InteractiveTile {
     }
 
     public boolean checkKey(){
-        return gp.inventory.peekItem() instanceof KeyItem;
+        return gp.inventory.peekItem() instanceof CoinItem;
     }
 }

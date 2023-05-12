@@ -3,6 +3,7 @@ package main;
 
 import Items.InventoryItem;
 import Items.Item;
+import Entities.Player;
 
 
 import javax.imageio.ImageIO;
@@ -90,7 +91,10 @@ public class Inventory {
     /**
      * Insert item at the first free inventory slot or stack
      */
-    public void addItem(Item item) {
+    public void addItem(Item item, String special) {
+        if(Objects.equals(special, "speed")) {
+            Player.increaseSpeed(2);
+        }
         for (int i = 0; i < AppSettings.inventorySlots; i++) {
             if(slotUsed[i]) {
                 if (slotContents[i].itemID == item.id && !slotContents[i].isFull()) {

@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 public class Entity {
     //Default values
     public int wX, wY;
-    public int speed;
+    public static int speed;
     public String direction;
     public BufferedImage up1, up2, down1, down2, right1, right2, left1, left2;
     public boolean collision=false;

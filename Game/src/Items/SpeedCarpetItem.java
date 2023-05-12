@@ -6,12 +6,12 @@ import main.GamePanel;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class KeyItem extends Item {
+public class SpeedCarpetItem extends Item {
     //Constructor
-    public KeyItem(){
+    public SpeedCarpetItem(){
 
         try {
-            img = ImageIO.read(getClass().getResourceAsStream("/Items/key.png"));
+            img = ImageIO.read(getClass().getResourceAsStream("/Items/speedCarpet.png"));
         }catch (IOException e){
             e.printStackTrace();
             this.id = 1;
@@ -20,10 +20,11 @@ public class KeyItem extends Item {
     //Action
     @Override
     public boolean interact(GamePanel gp) {
-        gp.inventory.addItem(this, null);
-        gp.chatBox.setMessageByKey("key");
+        gp.inventory.addItem(this, "speed");
+        gp.chatBox.setMessageByKey("speedCarpet");
         return true;
 
 
     }
+
 }

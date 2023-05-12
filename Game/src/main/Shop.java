@@ -29,13 +29,14 @@ public class Shop {
         this.offerCount = Integer.parseInt(args[0]);
         this.itemsOffered = new String[offerCount];
 
-        for (int i = 1; i < offerCount; i++) {
-            this.itemsOffered[i] = args[i];
+        for (int i = 0; i < offerCount; i++) {
+            this.itemsOffered[i] = args[i+1];
         }
 
         margin  = totalWidth/(3*offerCount+1);
         totalHeight = 4 * margin;
         yOffset = (totalHeight-2*margin)/2;
+        positionY -= yOffset;
     }
 
     public void draw(Graphics2D g2){

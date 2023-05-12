@@ -10,7 +10,7 @@ public class Jeff extends NPC {
 
     @Override
    public void act1(){
-        gp.shop = new Shop(new String[]{"1", "keyItem"});
+        gp.shop = new Shop(new String[]{"2", "keyItem", "speedCarpetItem"});
         gp.player.controlsLocked = true;
     }
 
