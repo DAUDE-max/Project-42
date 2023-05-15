@@ -18,6 +18,10 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int maxColumns = 100;
     public static final int maxRows = 100;
 
+    public boolean staticScreen = true;
+
+
+    private StartScreen start = new StartScreen(this);
     public  GameGraph gameGraph = new GameGraph();
     private Thread gameThread;
     private int tickLength;
@@ -97,6 +101,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Update game components, gets called periodically
      */
     public void update() {
+        if(staticScreen)return;
         this.player.update();
 
     }
@@ -109,7 +114,10 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
         Graphics2D graphics2d = (Graphics2D) graphics;
-
+        if(staticScreen){
+            start.draw(graphics2d);
+            return;
+        }
         gameGraph.draw(this, graphics2d);
 
         graphics2d.dispose();

@@ -28,7 +28,9 @@ public class Player extends Entity{
     /**Constructor, setting Interfaces, position and hitbox
      * And applying default Values and player images */
     public Player(GamePanel gp){
+        super(gp);
         this.gp = gp;
+
         this.kM = gp.keyManager;
         sX = (AppSettings.desktopWidth)/2 - GamePanel.tileSize /2;
         sY = (AppSettings.desktopHight)/2 - GamePanel.tileSize /2;
@@ -67,6 +69,7 @@ public class Player extends Entity{
     }
 
 
+
     public void update(){
         if(!controlsLocked) {
             if (kM.downPressed || kM.upPressed || kM.rightPressed || kM.leftPressed) {
@@ -84,7 +87,9 @@ public class Player extends Entity{
 
                 //Object Collision
 
-                accspeed = speed;
+                accspeed = speed + speedBuff();
+
+
                 int[] b = gp.collision.checkTile(this);
                 int objID = gp.collision.checkItems(this, true);
                 collectItem(objID);
@@ -168,11 +173,4 @@ public class Player extends Entity{
         g2.drawImage(image, sX,sY, GamePanel.tileSize, GamePanel.tileSize, null);
     }
 
-    public static void increaseSpeed(int i) {
-        speed += i;
-    }
-
-    public void decreaseSpeed(int i) {
-        speed -= i;
-    }
 }

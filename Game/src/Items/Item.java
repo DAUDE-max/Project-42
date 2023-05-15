@@ -26,6 +26,8 @@ public class Item {
         System.gc();
     }
 
+    public int speed = 0;
+
     //Draw
     public void draw(Graphics2D g2, GamePanel gp){
 

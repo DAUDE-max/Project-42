@@ -16,6 +16,7 @@ public class CoinItem extends Item {
             e.printStackTrace();
             this.id = 1;
         }
+
     }
     //Action
     @Override

@@ -14,7 +14,7 @@ class Main{
         GamePanel gp = new GamePanel();
         window.add(gp);
         gp.startGameThread();
-        gp.setup();
+
 
         // Apply window size, position and visibility
         window.pack();

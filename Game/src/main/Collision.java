@@ -37,7 +37,7 @@ public class Collision {
 
 
                 case 1 -> {
-                    int ntr = (t - e.speed) / GamePanel.tileSize;
+                    int ntr = (t - e.speed - e.speedBuff()) / GamePanel.tileSize;
                     tN1 = gp.tileManager.mTN[lc][ntr];
                     tN2 = gp.tileManager.mTN[rc][ntr];
                     if (gp.tileManager.tile[tN1].collision || gp.tileManager.tile[tN2].collision) {
@@ -48,7 +48,7 @@ public class Collision {
 
 
                 case 2 -> {
-                    int nbr = (b + e.speed) / GamePanel.tileSize;
+                    int nbr = (b + e.speed+ e.speedBuff()) / GamePanel.tileSize;
                     tN1 = gp.tileManager.mTN[lc][nbr];
                     tN2 = gp.tileManager.mTN[rc][nbr];
                     if (gp.tileManager.tile[tN1].collision || gp.tileManager.tile[tN2].collision) {
@@ -58,7 +58,7 @@ public class Collision {
 
 
                 case 3 -> {
-                    int nlc = (l - e.speed) / GamePanel.tileSize;
+                    int nlc = (l - e.speed- e.speedBuff()) / GamePanel.tileSize;
                     tN1 = gp.tileManager.mTN[nlc][tr];
                     tN2 = gp.tileManager.mTN[nlc][br];
                     if (gp.tileManager.tile[tN1].collision || gp.tileManager.tile[tN2].collision) {
@@ -68,7 +68,7 @@ public class Collision {
 
 
                 case 4 -> {
-                    int nrc = (r + e.speed) / GamePanel.tileSize;
+                    int nrc = (r + e.speed+ e.speedBuff()) / GamePanel.tileSize;
                     tN1 = gp.tileManager.mTN[nrc][tr];
                     tN2 = gp.tileManager.mTN[nrc][br];
                     if (gp.tileManager.tile[tN1].collision || gp.tileManager.tile[tN2].collision) {
@@ -97,7 +97,7 @@ public class Collision {
 
                 switch (e.direction) {
                     case "up" -> {
-                        e.hitBox.y -= e.speed;
+                        e.hitBox.y -= e.speed- e.speedBuff();
                         if (e.hitBox.intersects(i.hitBox)) {
 
                             if(i.collision){
@@ -109,7 +109,7 @@ public class Collision {
                         }
                     }
                     case "down" -> {
-                        e.hitBox.y += e.speed;
+                        e.hitBox.y += e.speed+ e.speedBuff();
                         if (e.hitBox.intersects(i.hitBox)) {
                             if(i.collision){
                                 e.collision = true;
@@ -120,7 +120,7 @@ public class Collision {
                         }
                     }
                     case "right" -> {
-                        e.hitBox.x += e.speed;
+                        e.hitBox.x += e.speed+ e.speedBuff();
                         if (e.hitBox.intersects(i.hitBox)) {
                             if(i.collision){
                                 e.collision = true;
@@ -131,7 +131,7 @@ public class Collision {
                         }
                     }
                     case "left" -> {
-                        e.hitBox.x -= e.speed;
+                        e.hitBox.x -= e.speed- e.speedBuff();
                         if (e.hitBox.intersects(i.hitBox)) {
                             if(i.collision){
                                 e.collision = true;
@@ -170,7 +170,7 @@ public class Collision {
 
                 switch (e.direction) {
                     case "up" -> {
-                        e.hitBox.y += e.speed;
+                        e.hitBox.y += e.speed+ e.speedBuff();
                         if (e.hitBox.intersects(gp.itemManager.obj[i].hitBox)) {
 
                             if(gp.itemManager.obj[i].collision){
@@ -182,7 +182,7 @@ public class Collision {
                         }
                     }
                     case "down" -> {
-                        e.hitBox.y -= e.speed;
+                        e.hitBox.y -= e.speed - e.speedBuff();
                         if (e.hitBox.intersects(gp.itemManager.obj[i].hitBox)) {
                             if(gp.itemManager.obj[i].collision){
                                 e.collision = true;
@@ -193,7 +193,7 @@ public class Collision {
                         }
                     }
                     case "right" -> {
-                        e.hitBox.x += e.speed;
+                        e.hitBox.x += e.speed+ e.speedBuff();
                         if (e.hitBox.intersects(gp.itemManager.obj[i].hitBox)) {
                             if(gp.itemManager.obj[i].collision){
                                 e.collision = true;
@@ -204,7 +204,7 @@ public class Collision {
                         }
                     }
                     case "left" -> {
-                        e.hitBox.x -= e.speed;
+                        e.hitBox.x -= e.speed- e.speedBuff();
                         if (e.hitBox.intersects(gp.itemManager.obj[i].hitBox)) {
                             if(gp.itemManager.obj[i].collision){
                                 e.collision = true;

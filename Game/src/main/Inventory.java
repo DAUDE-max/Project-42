@@ -38,6 +38,7 @@ public class Inventory {
     private InventoryItem[] slotContents;
 
     private boolean[] slotUsed = new boolean[9];
+    public int buff = 0;
 
 
     public Inventory(GamePanel gp) {
@@ -92,9 +93,8 @@ public class Inventory {
      * Insert item at the first free inventory slot or stack
      */
     public void addItem(Item item, String special) {
-        if(Objects.equals(special, "speed")) {
-            Player.increaseSpeed(2);
-        }
+        //jedes Item hat nh variable Speedcount?
+        buff += item.speed;
         for (int i = 0; i < AppSettings.inventorySlots; i++) {
             if(slotUsed[i]) {
                 if (slotContents[i].itemID == item.id && !slotContents[i].isFull()) {
@@ -114,12 +114,13 @@ public class Inventory {
      * Retrieve an item from stack
      */
     public Item retrieveItem(){
+
         InventoryItem slotContent = slotContents[this.selectedSlotIndex];
         Item item = null;
 
         if(slotContent != null) {
             item = slotContent.type;
-
+            buff -= item.speed;
             if(slotContent.quantity == 1){
                 slotContents[this.selectedSlotIndex] = null;
                 slotUsed[this.selectedSlotIndex] = false;
