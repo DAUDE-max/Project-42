@@ -14,13 +14,13 @@ public class KeyItem extends Item {
             img = ImageIO.read(getClass().getResourceAsStream("/Items/key.png"));
         }catch (IOException e){
             e.printStackTrace();
-            this.id = 1;
+            this.id = 2;
         }
     }
     //Action
     @Override
     public boolean interact(GamePanel gp) {
-        gp.inventory.addItem(this, null);
+        gp.inventory.addItem(this);
         gp.chatBox.setMessageByKey("key");
         return true;
 

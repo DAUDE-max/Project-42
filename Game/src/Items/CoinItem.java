@@ -21,7 +21,7 @@ public class CoinItem extends Item {
     //Action
     @Override
     public boolean interact(GamePanel gp) {
-        gp.inventory.addItem(this, "speed");
+        gp.inventory.addItem(this);
         gp.chatBox.setMessageByKey("coin");
         return true;
 

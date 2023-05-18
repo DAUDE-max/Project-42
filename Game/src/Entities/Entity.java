@@ -11,6 +11,7 @@ public class Entity {
     //Default values
     public int wX, wY;
     public static int speed;
+    public static int hearts;
     public String direction;
     public BufferedImage up1, up2, down1, down2, right1, right2, left1, left2;
     public boolean collision=false;
@@ -24,8 +25,14 @@ public class Entity {
     //speedBuff
     public int speedBuff(){
         int buff = 0;
-        buff += gp.inventory.buff;
+        buff += gp.inventory.speedBuff;
 
+        return buff;
+    }
+
+    public int heartBuff(){
+        int buff = 0;
+        buff += gp.inventory.heartBuff;
         return buff;
     }
 

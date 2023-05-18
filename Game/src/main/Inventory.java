@@ -3,7 +3,6 @@ package main;
 
 import Items.InventoryItem;
 import Items.Item;
-import Entities.Player;
 
 
 import javax.imageio.ImageIO;
@@ -38,8 +37,8 @@ public class Inventory {
     private InventoryItem[] slotContents;
 
     private boolean[] slotUsed = new boolean[9];
-    public int buff = 0;
-
+    public int speedBuff = 0;
+    public int heartBuff = 0;
 
     public Inventory(GamePanel gp) {
         this.gp = gp;
@@ -92,9 +91,8 @@ public class Inventory {
     /**
      * Insert item at the first free inventory slot or stack
      */
-    public void addItem(Item item, String special) {
-        //jedes Item hat nh variable Speedcount?
-        buff += item.speed;
+    public void addItem(Item item) {
+        if(item.id == 4) { heartBuff += item.hearts; }
         for (int i = 0; i < AppSettings.inventorySlots; i++) {
             if(slotUsed[i]) {
                 if (slotContents[i].itemID == item.id && !slotContents[i].isFull()) {
@@ -105,6 +103,7 @@ public class Inventory {
             else if (slotContents[i] == null) {
                 slotContents[i] = new InventoryItem(item, (byte) 1);
                 slotUsed[i] = true;
+                if(item.id == 3) { speedBuff += item.speed; }
                 break;
             }
         }
@@ -116,11 +115,12 @@ public class Inventory {
     public Item retrieveItem(){
 
         InventoryItem slotContent = slotContents[this.selectedSlotIndex];
+        if(slotContent.itemID == 4) { heartBuff -= slotContent.type.hearts; }
         Item item = null;
 
         if(slotContent != null) {
             item = slotContent.type;
-            buff -= item.speed;
+            if(item.id == 3) { speedBuff -= item.speed; }
             if(slotContent.quantity == 1){
                 slotContents[this.selectedSlotIndex] = null;
                 slotUsed[this.selectedSlotIndex] = false;

@@ -48,6 +48,7 @@ public class Player extends Entity{
         wX = 50* GamePanel.tileSize;
         wY = 50* GamePanel.tileSize;
         speed = 4;
+        hearts = 3;
         direction = "down";
     }
     //Images

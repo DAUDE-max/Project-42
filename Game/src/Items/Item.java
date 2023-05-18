@@ -27,6 +27,7 @@ public class Item {
     }
 
     public int speed = 0;
+    public int hearts = 0;
 
     //Draw
     public void draw(Graphics2D g2, GamePanel gp){
