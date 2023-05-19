@@ -14,8 +14,9 @@ public class SpeedCarpetItem extends Item {
             img = ImageIO.read(getClass().getResourceAsStream("/Items/speedCarpet.png"));
         }catch (IOException e){
             e.printStackTrace();
-            this.id = 3;
+
         }
+        this.id = 3;
     }
     //Action
     @Override

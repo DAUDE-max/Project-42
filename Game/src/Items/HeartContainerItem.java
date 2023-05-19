@@ -13,8 +13,9 @@ public class HeartContainerItem extends Item {
             img = ImageIO.read(getClass().getResourceAsStream("/Items/heartContainer.png"));
         }catch (IOException e){
             e.printStackTrace();
-            this.id = 4;
+
         }
+        this.id = 4;
     }
     //Action
     @Override

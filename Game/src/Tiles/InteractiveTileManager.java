@@ -3,6 +3,7 @@ package Tiles;
 import Entities.Player;
 import Tiles.InteractiveTiles.Chest;
 import Tiles.InteractiveTiles.Door;
+import Tiles.InteractiveTiles.NPC.Jeff;
 import Tiles.InteractiveTiles.Pot;
 import main.GamePanel;
 

@@ -14,8 +14,9 @@ public class KeyItem extends Item {
             img = ImageIO.read(getClass().getResourceAsStream("/Items/key.png"));
         }catch (IOException e){
             e.printStackTrace();
-            this.id = 2;
+
         }
+        this.id = 2;
     }
     //Action
     @Override

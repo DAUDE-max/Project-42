@@ -14,9 +14,9 @@ public class CoinItem extends Item {
             img = ImageIO.read(getClass().getResourceAsStream("/Items/coin.png"));
         }catch (IOException e){
             e.printStackTrace();
-            this.id = 1;
-        }
 
+        }
+        this.id = 1;
     }
     //Action
     @Override
