@@ -4,7 +4,7 @@ import Tiles.InteractiveTile;
 
 import javax.imageio.ImageIO;
 import java.util.Objects;
-import Entities.Player;
+
 import main.GamePanel;
 
 public class Door extends InteractiveTile {
@@ -13,7 +13,7 @@ public class Door extends InteractiveTile {
         super(wX,wY,gp);
         collision = true;
         try{
-            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tiles/door_closed.png")));
+            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/InteractiveTiles/door_closed.png")));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -23,14 +23,14 @@ public class Door extends InteractiveTile {
         if(collision){
             collision = false;
             try{
-                img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tiles/door_open.png")));
+                img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/InteractiveTiles/door_open.png")));
             }catch (Exception e){
                 e.printStackTrace();
             }
         }else {
             collision = true;
             try{
-                img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tiles/door_closed.png")));
+                img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/InteractiveTiles/door_closed.png")));
             }catch (Exception e){
                 e.printStackTrace();
             }

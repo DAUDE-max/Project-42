@@ -1,12 +1,11 @@
 package Tiles.InteractiveTiles;
 
 import Items.CoinItem;
-import Items.KeyItem;
 import Tiles.InteractiveTile;
 
 import javax.imageio.ImageIO;
 import java.util.Objects;
-import Entities.Player;
+
 import main.GamePanel;
 
 public class Chest extends InteractiveTile {
@@ -18,7 +17,7 @@ public class Chest extends InteractiveTile {
         super(wX,wY,gp);
         collision=true;
         try{
-            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tiles/chest_closed.png")));
+            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/InteractiveTiles/chest_closed.png")));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -33,7 +32,7 @@ public class Chest extends InteractiveTile {
         if(!opened && checkKey()){
             gp.inventory.retrieveItem();
             try{
-                img = ImageIO.read(getClass().getResourceAsStream("/Tiles/chest_open.png"));
+                img = ImageIO.read(getClass().getResourceAsStream("/InteractiveTiles/chest_open.png"));
             }catch (Exception e){
                 e.printStackTrace();
             }
