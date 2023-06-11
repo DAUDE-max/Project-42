@@ -1,17 +1,17 @@
 package Items;
 
-import Entities.Player;
 import main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import java.util.Objects;
 
 public class SpeedCarpetItem extends Item {
     //Constructor
     public SpeedCarpetItem(){
 
         try {
-            img = ImageIO.read(getClass().getResourceAsStream("/Items/speedCarpet.png"));
+            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Items/speedCarpet.png")));
         }catch (IOException e){
             e.printStackTrace();
 

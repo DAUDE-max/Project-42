@@ -18,7 +18,7 @@ public class Player extends Entity{
     //Position
     public final int sX;
     public final int sY;
-    int accspeed = speed;
+    int actualspeed = speed;
 
     public boolean controlsLocked = false;
 
@@ -88,7 +88,7 @@ public class Player extends Entity{
 
                 //Object Collision
 
-                accspeed = speed + speedBuff();
+                actualspeed = speed + speedBuff();
 
 
                 int[] b = gp.collision.checkTile(this);
@@ -97,15 +97,15 @@ public class Player extends Entity{
                 interact(gp.collision.checkIT(this, true));
 
                 if (kM.upPressed && contains(b, 1)) {
-                    wY -= accspeed;
+                    wY -= actualspeed;
                 } else if (kM.downPressed && contains(b, 2)) {
-                    wY += accspeed;
+                    wY += actualspeed;
                 }
 
                 if (kM.leftPressed && contains(b, 3)) {
-                    wX -= accspeed;
+                    wX -= actualspeed;
                 } else if (kM.rightPressed && contains(b, 4)) {
-                    wX += accspeed;
+                    wX += actualspeed;
                 }
 
 
@@ -130,7 +130,7 @@ public class Player extends Entity{
     void interact(InteractiveTile t){
         if(t==null)return;
         if(!t.collision)return;
-        accspeed = 0;
+        actualspeed = 0;
 
     }
 

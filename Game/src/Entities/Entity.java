@@ -30,11 +30,13 @@ public class Entity {
         return buff;
     }
 
+    /*
+        in development
     public int heartBuff(){
         int buff = 0;
         buff += gp.inventory.heartBuff;
         return buff;
-    }
+    }*/
 
     public Entity(GamePanel gp){
         this.gp = gp;

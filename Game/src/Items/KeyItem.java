@@ -1,17 +1,17 @@
 package Items;
 
-import Entities.Player;
 import main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import java.util.Objects;
 
 public class KeyItem extends Item {
     //Constructor
     public KeyItem(){
 
         try {
-            img = ImageIO.read(getClass().getResourceAsStream("/Items/key.png"));
+            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Items/key.png")));
         }catch (IOException e){
             e.printStackTrace();
 

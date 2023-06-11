@@ -1,6 +1,5 @@
 package Items;
 
-import Entities.Player;
 import main.GamePanel;
 
 import java.awt.*;
@@ -22,9 +21,7 @@ public class Item {
         return false;
     }
     //Makes an item disappear when collected
-    public void vanish(){
-        System.gc();
-    }
+
 
     public int speed = 0;
     public int hearts = 0;

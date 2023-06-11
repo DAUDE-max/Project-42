@@ -26,7 +26,7 @@ public class Pot extends InteractiveTile {
         hitBox.y = 9;
         hitBox.width = 40;
         hitBox.height = 52;
-        this.coinInside = (coinInside=="true");
+        this.coinInside = (coinInside.equals("true"));
     }
 
     @Override

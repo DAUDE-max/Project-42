@@ -34,9 +34,9 @@ public class Inventory {
     // Control variables
     private int selectedSlotIndex;
     private BufferedImage slotImage;
-    private InventoryItem[] slotContents;
+    private final InventoryItem[] slotContents;
 
-    private boolean[] slotUsed = new boolean[9];
+    private final boolean[] slotUsed = new boolean[9];
     public int speedBuff = 0;
     public int heartBuff = 0;
 
@@ -112,24 +112,21 @@ public class Inventory {
     /**
      * Retrieve an item from stack
      */
-    public Item retrieveItem(){
+    public void retrieveItem(){
 
         InventoryItem slotContent = slotContents[this.selectedSlotIndex];
         if(slotContent.itemID == 4) { heartBuff -= slotContent.type.hearts; }
-        Item item = null;
+        Item item;
 
-        if(slotContent != null) {
-            item = slotContent.type;
-            if(item.id == 3) { speedBuff -= item.speed; }
-            if(slotContent.quantity == 1){
-                slotContents[this.selectedSlotIndex] = null;
-                slotUsed[this.selectedSlotIndex] = false;
-            } else {
-                slotContent.quantity--;
-            }
+        item = slotContent.type;
+        if(item.id == 3) { speedBuff -= item.speed; }
+        if(slotContent.quantity == 1){
+            slotContents[this.selectedSlotIndex] = null;
+            slotUsed[this.selectedSlotIndex] = false;
+        } else {
+            slotContent.quantity--;
         }
 
-        return item;
     }
 
     /**

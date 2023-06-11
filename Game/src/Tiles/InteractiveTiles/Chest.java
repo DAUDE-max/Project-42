@@ -32,7 +32,7 @@ public class Chest extends InteractiveTile {
         if(!opened && checkKey()){
             gp.inventory.retrieveItem();
             try{
-                img = ImageIO.read(getClass().getResourceAsStream("/InteractiveTiles/chest_open.png"));
+                img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/InteractiveTiles/chest_open.png")));
             }catch (Exception e){
                 e.printStackTrace();
             }

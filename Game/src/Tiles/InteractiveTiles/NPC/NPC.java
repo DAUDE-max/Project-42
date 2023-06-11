@@ -25,7 +25,7 @@ public class NPC extends InteractiveTile {
     }
 
     public void act1(){}
-    public void act2(){};
+    public void act2(){}
 
 
     @Override

@@ -29,9 +29,7 @@ public class Shop {
         this.offerCount = Integer.parseInt(args[0]);
         this.itemsOffered = new String[offerCount];
 
-        for (int i = 0; i < offerCount; i++) {
-            this.itemsOffered[i] = args[i+1];
-        }
+        System.arraycopy(args, 1, this.itemsOffered, 0, offerCount);
 
         margin  = totalWidth/(3*offerCount+1);
         totalHeight = 4 * margin;

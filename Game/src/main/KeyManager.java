@@ -18,7 +18,6 @@ this.gp = gp;    }
     //checks fpr typed Key
     @Override
     public void keyTyped(KeyEvent e) {
-        int code = e.getKeyCode();
     }
 
     //Checks for pressed Key

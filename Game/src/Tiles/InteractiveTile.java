@@ -1,6 +1,5 @@
 package Tiles;
 
-import Entities.Player;
 import main.GamePanel;
 
 import java.awt.*;

@@ -4,7 +4,6 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.Objects;
 
 public class StartScreen {
@@ -40,7 +39,7 @@ public class StartScreen {
     BufferedImage backG;
 
     public void act(){
-        gp.staticScreen = false;
+        gp.staticScreen = 0;
         gp.setup();
     }
 

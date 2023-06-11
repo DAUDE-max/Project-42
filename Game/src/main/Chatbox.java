@@ -1,8 +1,6 @@
 package main;
 
 import javax.imageio.ImageIO;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.Style;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -28,9 +26,6 @@ public class Chatbox {
     // Positions
     private final int positionX;
     private final int positionY;
-
-    private final int margineY = 64; //fürs erste konstant
-    private final int margineX = 48;
 
     private BufferedImage img;
     private String selectedText;
@@ -85,7 +80,10 @@ public class Chatbox {
     public void draw(Graphics2D g2){
         g2.drawImage(img,positionX,positionY,totalWidth,totalHeight, null );
         if(selectedText==null)return;
+        int margineX = 48;
         int x = positionX + margineX;
+        //fürs erste konstant
+        int margineY = 64;
         int y = positionY + margineY;
         g2.setFont(new Font("Arial", Font.BOLD, 18));
         FontMetrics fm = g2.getFontMetrics();

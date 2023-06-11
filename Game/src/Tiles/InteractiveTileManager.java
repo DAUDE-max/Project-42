@@ -4,6 +4,7 @@ import Entities.Player;
 import Tiles.InteractiveTiles.Chest;
 import Tiles.InteractiveTiles.Door;
 import Tiles.InteractiveTiles.NPC.Jeff;
+import Tiles.InteractiveTiles.NPC.Trader;
 import Tiles.InteractiveTiles.Pot;
 import main.GamePanel;
 
@@ -22,7 +23,7 @@ public class InteractiveTileManager {
         update();
     }
 
-    public void summon(int wX, int wY, String id, String[] special) {;
+    public void summon(int wX, int wY, String id, String[] special) {
         switch (id){
             case "chest" -> {
                 wX *= GamePanel.tileSize;
@@ -45,6 +46,11 @@ public class InteractiveTileManager {
                         wX *= GamePanel.tileSize;
                         wY *= GamePanel.tileSize;
                         its.add( new Jeff(wX,wY,gp, special));
+                    }
+                    case "trader" -> {
+                        wX *= GamePanel.tileSize;
+                        wY *= GamePanel.tileSize;
+                        its.add( new Trader(wX,wY,gp, special));
                     }
                 }
             }

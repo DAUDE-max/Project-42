@@ -1,6 +1,5 @@
 package main;
 
-import javax.tools.Tool;
 import java.awt.*;
 
 /**

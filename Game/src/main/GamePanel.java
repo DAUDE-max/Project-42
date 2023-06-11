@@ -10,20 +10,18 @@ public class GamePanel extends JPanel implements Runnable {
 
     // Screen constants
     public static final int tileSize = 64;
-    public static final int columns = AppSettings.desktopWidth/64;
-    public static final int rows = AppSettings.desktopHight/64;
     public static final int fps = 60;
 
     // World constants
     public static final int maxColumns = 100;
     public static final int maxRows = 100;
 
-    public boolean staticScreen;
+    public int staticScreen;
 
 
     public  GameGraph gameGraph = new GameGraph();
     private Thread gameThread;
-    private int tickLength;
+    final private int tickLength;
     public Inventory inventory = new Inventory(this);
 
     public Collision collision = new Collision(this);
@@ -36,6 +34,8 @@ public class GamePanel extends JPanel implements Runnable {
     public Chatbox chatBox = new Chatbox(this);
     public Shop shop;
     public StartScreen start = new StartScreen(this);
+
+    public WinScreen win = new WinScreen();
 
 
 
@@ -52,7 +52,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Constructor
      */
     GamePanel() {
-        this.staticScreen = true;
+        this.staticScreen = 1;
         this.setPreferredSize(new Dimension(AppSettings.desktopWidth, AppSettings.desktopHight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
@@ -103,7 +103,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Update game components, gets called periodically
      */
     public void update() {
-        if(staticScreen)return;
+        if(staticScreen!=0)return;
         this.player.update();
 
     }
@@ -116,12 +116,21 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
         Graphics2D graphics2d = (Graphics2D) graphics;
-        if(staticScreen){
+        if(staticScreen == 1){
             start.draw(graphics2d);
+            return;
+        }
+        if(staticScreen == 2){
+            win.draw(graphics2d);
             return;
         }
         gameGraph.draw(this, graphics2d);
 
         graphics2d.dispose();
+    }
+
+    public void win(){
+        staticScreen = 2;
+        gameThread = null;
     }
 }
