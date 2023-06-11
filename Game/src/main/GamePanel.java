@@ -18,10 +18,9 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int maxColumns = 100;
     public static final int maxRows = 100;
 
-    public boolean staticScreen = true;
+    public boolean staticScreen;
 
 
-    private StartScreen start = new StartScreen(this);
     public  GameGraph gameGraph = new GameGraph();
     private Thread gameThread;
     private int tickLength;
@@ -36,6 +35,8 @@ public class GamePanel extends JPanel implements Runnable {
     public InteractiveTileManager interactiveTileManager = new InteractiveTileManager(this);
     public Chatbox chatBox = new Chatbox(this);
     public Shop shop;
+    public StartScreen start = new StartScreen(this);
+
 
 
     public int getScreenWidth() {
@@ -51,6 +52,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Constructor
      */
     GamePanel() {
+        this.staticScreen = true;
         this.setPreferredSize(new Dimension(AppSettings.desktopWidth, AppSettings.desktopHight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
@@ -70,7 +72,7 @@ public class GamePanel extends JPanel implements Runnable {
         long latestTime = 0;
 
         // Execute only while game thread is running
-        while (this.gameThread != null) {
+        while (gameThread != null) {
             currentTime = System.nanoTime();
 
             // Check if it is time to repaint
@@ -94,7 +96,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Initialize game components
      */
     public void setup() {
-        Setup setup = new Setup(this);
+        new Setup(this);
     }
 
     /**

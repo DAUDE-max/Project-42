@@ -18,7 +18,7 @@ public class Pot extends InteractiveTile {
         super(wX,wY,gp);
         collision = true;
         try{
-            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Tiles/pot.png")));
+            img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/InteractiveTiles/box.png")));
         }catch (Exception e){
             e.printStackTrace();
         }

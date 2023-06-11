@@ -42,6 +42,7 @@ this.gp = gp;    }
             case KeyEvent.VK_7 -> gp.inventory.selectSlot(6);
             case KeyEvent.VK_8 -> gp.inventory.selectSlot(7);
             case KeyEvent.VK_9 -> gp.inventory.selectSlot(8);
+            case KeyEvent.VK_SPACE -> gp.start.act();
         }
     }
     //Checks for released key
@@ -55,6 +56,7 @@ this.gp = gp;    }
             case KeyEvent.VK_S -> downPressed = false;
             case KeyEvent.VK_A -> leftPressed = false;
             case KeyEvent.VK_D -> rightPressed = false;
+
         }
 
 
