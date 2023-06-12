@@ -46,7 +46,7 @@ public class Player extends Entity{
     //Default values
     public void setDefaultValues(){
         wX = 50* GamePanel.tileSize;
-        wY = 50* GamePanel.tileSize;
+        wY = 48* GamePanel.tileSize;
         speed = 4;
         hearts = 3;
         direction = "down";

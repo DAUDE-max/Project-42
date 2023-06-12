@@ -7,15 +7,15 @@ import Tiles.InteractiveTiles.NPC.Jeff;
 import Tiles.InteractiveTiles.NPC.Trader;
 import Tiles.InteractiveTiles.Pot;
 import main.GamePanel;
-
-import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class InteractiveTileManager {
     //Referenzen
     GamePanel gp;
     Player p;
     //Array
-    public ArrayList<InteractiveTile> its = new ArrayList<>();
+    public List<InteractiveTile> its = new CopyOnWriteArrayList<>();
 
     public InteractiveTileManager(GamePanel gp) {
         this.gp = gp;
@@ -64,29 +64,32 @@ public class InteractiveTileManager {
 
     public void update() {
         gp.keyManager.ePressed = false;
-        for (InteractiveTile t : its) {
-            if (t == null) break;
-            switch (p.direction) {
-                case "right" -> {
-                    if (t.wX > p.wX + 32 && t.wX < p.wX + 96 && t.wY > p.wY - 32 && t.wY < p.wY + 96) {
-                        t.action();
+        synchronized (its){
+            for (InteractiveTile t : its) {
+                if (t == null) break;
+                switch (p.direction) {
+                    case "right" -> {
+                        if (t.wX > p.wX + 32 && t.wX < p.wX + 96 && t.wY > p.wY - 32 && t.wY < p.wY + 96) {
+                            t.action();
+                        }
+                    }
+                    case "left" -> {
+                        if (t.wX > p.wX - 96 && t.wX < p.wX + 32 && t.wY > p.wY - 32 && t.wY < p.wY + 96) {
+                            t.action();
+                        }
+                    }
+                    case "up" -> {
+                        if (t.wX > p.wX - 32 && t.wX < p.wX + 96 && t.wY > p.wY - 64 && t.wY < p.wY) {
+                            t.action();
+                        }
+                    }
+                    case "down" -> {
+                        if (t.wX > p.wX - 32 && t.wX < p.wX + 96 && t.wY > p.wY + 32 && t.wY < p.wY + 96) {
+                            t.action();
+                        }
                     }
                 }
-                case "left" -> {
-                    if (t.wX > p.wX - 96 && t.wX < p.wX + 32 && t.wY > p.wY - 32 && t.wY < p.wY + 96) {
-                        t.action();
-                    }
-                }
-                case "up" -> {
-                    if (t.wX > p.wX - 32 && t.wX < p.wX + 96 && t.wY > p.wY - 64 && t.wY < p.wY) {
-                        t.action();
-                    }
-                }
-                case "down" -> {
-                    if (t.wX > p.wX - 32 && t.wX < p.wX + 96 && t.wY > p.wY + 32 && t.wY < p.wY + 96) {
-                        t.action();
-                    }
-                }
+
             }
 
         }
