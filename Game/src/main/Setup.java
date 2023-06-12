@@ -26,7 +26,7 @@ public class Setup {
         interactiveTileManager.summon(28,52, "door",new String[]{"false"});
         interactiveTileManager.summon(64,53, "door",new String[]{"false"});
         interactiveTileManager.summon(24, 61, "pot",new String[]{"true"});
-        interactiveTileManager.summon(39, 47, "npc",new String[]{"jeff", "1"});
+        interactiveTileManager.summon(41, 47, "npc",new String[]{"jeff", "1"});
         interactiveTileManager.summon(39, 49, "npc",new String[]{"trader", "1"});
 
     }
