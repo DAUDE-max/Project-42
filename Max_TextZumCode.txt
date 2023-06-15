@@ -16,12 +16,12 @@ Der Player selbst verfügt über eine weite Anzahl an Funktionen, darunter einma
 
 Collisions, meiner Meinung nach die schwerste Klasse die ich Programmiert habe, sie kümmert sich sowohl um die Hintergrund Tiles als auch um Interactivetiles und um Items. Darin stecken umgefähr 5 Stunden try and error.
 
-Interactivetiles bringen Funktionen ins Spiel, die der Spiler frei ansteurn kann. Dabei handelt es sich um Objekte welche im Vordergrund sind und jeweils eine bestimmte aKtion besitzen.
+Interactivetiles bringen Funktionen ins Spiel, die der Spieler frei ansteuern kann. Dabei handelt es sich um Objekte welche im Vordergrund sind und jeweils eine bestimmte Aktion besitzen.
 
 Besonderheiten unseres Spiels sind die Anpassung auf Bildschirme jeder Größe, die Möglichkeit die map über .map und die Chats über .chat Dateien zu laden, sowie zentral festgelegt Konstanten.
 
 Nicht im Spiel eingebaut aber vollfunktionsfähige Inhalte sind dazu noch Truhen, Schlüssel, Geschwindigkeits Items, Herzen und ein shop.
-Diese fanden mit den aktuellen anderen Möglichkeiten noch keinen gebrauch. Geplant sind aber Waffen in Kisten, die durch Schlüssel geöffnet werden, sowie shops in denen man für Münzen Herzen und Geschwindigkeitsitems kaufen kann. All das setzt jedoch ersteinmal eine Gegnerklasse vorraus, die wir bislang noch nicht entwickelt haben.
+Diese fanden mit den aktuellen anderen Möglichkeiten noch keinen Gebrauch. Geplant sind aber Waffen in Kisten, die durch Schlüssel geöffnet werden, sowie Shops in denen man für Münzen Herzen und Geschwindigkeitsitems kaufen kann. All das setzt jedoch ersteinmal eine Gegnerklasse vorraus, die wir bislang noch nicht entwickelt haben.
 
 
 
