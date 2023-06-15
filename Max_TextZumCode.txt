@@ -10,7 +10,7 @@ Das Inventory bietet an Minecraft angelehnt die Möglichkeitverschiedene Items z
 
 Key/Mousemanager sind selbsterklärend
 
-Entitys sind die grundlage für sowohl den Spieler als auch andere evtl kommende freundliche als auch feindliche Charaktere zu erschaffen
+Entitys sind die grundlage für sowohl den Spieler als auch andere evtl kommende freundliche als auch feindliche Charaktere
 
 Der Player selbst verfügt über eine weite Anzahl an Funktionen, darunter einmal die Bewegung und deren Animation. Noch dazu aber auch die Möglichkeit zur interaktion mit Objekten (Coins). Als eine besondere Schwierigkeit stellte sich das nicht in Interactivetiles verbuggen herraus, dabei verhackte sich der Player immer wieder in Interavtivetiles und konnte sich nicht mehr wegbewegen.
 
