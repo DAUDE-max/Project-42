@@ -12,7 +12,7 @@ public class ItemManager {
     }
 
     //Array of all Items and the index
-    public Item[] obj = new Item[10];
+    public Item[] obj = new Item[20];
     int index = 0;
 
 
