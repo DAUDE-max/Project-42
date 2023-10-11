@@ -8,6 +8,7 @@ class Main{
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setTitle("S-RPG");
+        window.setUndecorated(true);
         window.setResizable(true);
 
         // Create GamePanel, add it to window and start game
