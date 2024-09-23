@@ -1,10 +1,10 @@
 package main;
 
+import Entities.Patient;
 import Entities.Player;
 import Tiles.*;
-
-import javax.swing.JPanel;
 import java.awt.*;
+import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -46,6 +46,8 @@ public class GamePanel extends JPanel implements Runnable {
     public int getScreenHeight() {
         return AppSettings.desktopHight;
     }
+
+    public Patient patient;
 
 
     /**

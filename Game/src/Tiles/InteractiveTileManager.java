@@ -3,12 +3,12 @@ package Tiles;
 import Entities.Player;
 import Tiles.InteractiveTiles.Chest;
 import Tiles.InteractiveTiles.Door;
-import Tiles.InteractiveTiles.NPC.Jeff;
-import Tiles.InteractiveTiles.NPC.Trader;
+import Tiles.InteractiveTiles.NPC.Bib;
+import Tiles.InteractiveTiles.NPC.Selector;
 import Tiles.InteractiveTiles.Pot;
-import main.GamePanel;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import main.GamePanel;
 
 public class InteractiveTileManager {
     //Referenzen
@@ -45,12 +45,12 @@ public class InteractiveTileManager {
                     case "jeff" -> {
                         wX *= GamePanel.tileSize;
                         wY *= GamePanel.tileSize;
-                        its.add( new Jeff(wX,wY,gp, special));
+                        its.add( new Bib(wX,wY,gp, special));
                     }
                     case "trader" -> {
                         wX *= GamePanel.tileSize;
                         wY *= GamePanel.tileSize;
-                        its.add( new Trader(wX,wY,gp, special));
+                        its.add( new Selector(wX,wY,gp, special));
                     }
                 }
             }

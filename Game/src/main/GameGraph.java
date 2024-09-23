@@ -2,7 +2,6 @@ package main;
 
 import Items.Item;
 import Tiles.InteractiveTile;
-
 import java.awt.*;
 
 public class GameGraph {
@@ -29,6 +28,8 @@ public class GameGraph {
         gp.player.draw(graphics2d);
         gp.inventory.draw(graphics2d);
         gp.chatBox.draw(graphics2d);
+
+        if(gp.patient!=null)gp.patient.draw(graphics2d);
 
         if(gp.shop != null)gp.shop.draw(graphics2d);
     }

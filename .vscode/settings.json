@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "Game/src",
+        "Game/res"
+    ]
+}
