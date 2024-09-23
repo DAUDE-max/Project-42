@@ -1,14 +1,14 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        }
+      {
+        "type": "java",
+        "name": "Debug Main",
+        "request": "launch",
+        "mainClass": "main.Main",   // Adjust to your package
+        "projectName": "Game",      // Adjust to your project name
+        "cwd": "${workspaceFolder}/Project.42/Game",  // Adjust to the root of your project
+        "console": "internalConsole"
+      }
     ]
-}
+  }
