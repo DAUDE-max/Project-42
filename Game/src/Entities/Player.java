@@ -3,7 +3,7 @@ package Entities;
 import Tiles.InteractiveTile;
 import main.AppSettings;
 import main.GamePanel;
-import main.KeyManager;
+import Managers.KeyManager;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

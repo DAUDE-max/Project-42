@@ -1,6 +1,8 @@
 package main;
 
-import Tiles.InteractiveTileManager;
+import Managers.InteractiveTileManager;
+import Managers.ItemManager;
+
 public class Setup {
     /**
      * summons all Items and Interactive Tiles at the beginning of each round
@@ -27,7 +29,7 @@ public class Setup {
         interactiveTileManager.summon(64,53, "door",new String[]{"false"});
         interactiveTileManager.summon(24, 61, "pot",new String[]{"true"});
         interactiveTileManager.summon(28, 58, "npc",new String[]{"jeff", "1"});
-        interactiveTileManager.summon(64, 57, "npc",new String[]{"trader", "0"});
+        interactiveTileManager.summon(64, 57, "npc",new String[]{"trader", "1"});
 
     }
 }

@@ -1,24 +1,26 @@
 package Tiles.InteractiveTiles.NPC;
 
-import Entities.Patient;
-import diagnosen.DiagnoseManager;
 import java.util.Scanner;
+
+import Items.CoinItem;
 import main.GamePanel;
 
 public class Selector extends NPC{
 
-    int diagnoseNR;
+    int demand = 2;
 
     public Selector(int wX, int wY, GamePanel gp, String[] args) {
         super(wX,wY,gp, args);
     }
-    
-    public void action(){
-        System.out.println("Input");
-        Scanner scanner = new Scanner(System.in);
-        diagnoseNR = scanner.nextInt();
-        scanner.close();
-        gp.patient = new Patient(gp, new DiagnoseManager(), 64, 58, diagnoseNR);
-        System.out.print("Flag");
+
+    @Override
+    public void act1(){
+        System.out.println(name);
+        if(gp.inventory.peekItem() instanceof CoinItem){
+            gp.chatBox.setMessageByKey(name+"a");
+            gp.inventory.retrieveItem();
+            demand--;
+        }
+        if(demand == 0)gp.win();
     }
 }

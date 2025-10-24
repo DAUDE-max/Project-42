@@ -1,8 +1,9 @@
 package main;
 
-import Entities.Patient;
 import Entities.Player;
-import Tiles.*;
+import Managers.*;
+import Physik.Collision;
+
 import java.awt.*;
 import javax.swing.JPanel;
 
@@ -47,7 +48,6 @@ public class GamePanel extends JPanel implements Runnable {
         return AppSettings.desktopHight;
     }
 
-    public Patient patient;
 
 
     /**
