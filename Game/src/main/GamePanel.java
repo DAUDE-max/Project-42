@@ -2,7 +2,12 @@ package main;
 
 import Entities.Player;
 import Managers.*;
+import Overlays.Chatbox;
+import Overlays.Inventory.Inventory;
+import Overlays.Shop;
 import Physik.Collision;
+import Screens.StartScreen;
+import Screens.WinScreen;
 
 import java.awt.*;
 import javax.swing.JPanel;

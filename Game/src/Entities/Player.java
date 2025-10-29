@@ -1,6 +1,6 @@
 package Entities;
 
-import Tiles.InteractiveTile;
+import Tiles.InteractiveTiles.InteractiveTile;
 import main.AppSettings;
 import main.GamePanel;
 import Managers.KeyManager;

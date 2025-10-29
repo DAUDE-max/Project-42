@@ -1,6 +1,6 @@
 package Managers;
 
-import Items.CoinItem;
+import Items.Types.CoinItem;
 import Items.Item;
 import main.GamePanel;
 

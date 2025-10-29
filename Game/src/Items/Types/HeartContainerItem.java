@@ -1,21 +1,13 @@
-package Items;
+package Items.Types;
 
+import Items.Item;
 import main.GamePanel;
-
-import javax.imageio.ImageIO;
-import java.io.IOException;
 
 // in development
 public class HeartContainerItem extends Item {
     //Constructor
     public HeartContainerItem(){
-
-        try {
-            img = ImageIO.read(getClass().getResourceAsStream("/Items/heartContainer.png"));
-        }catch (IOException e){
-            e.printStackTrace();
-
-        }
+        getImg("/Items/heartContainer.png");
         this.id = 4;
     }
     //Action

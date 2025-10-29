@@ -1,5 +1,6 @@
-package Tiles.InteractiveTiles.NPC;
+package Tiles.InteractiveTiles.Types.NPC.Types;
 
+import Tiles.InteractiveTiles.Types.NPC.NPC;
 import main.GamePanel;
 
 //Npc als Erklärbär für die Stroyline (potentiell funktionierender Händler)

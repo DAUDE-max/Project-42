@@ -1,12 +1,12 @@
 package Managers;
 
 import Entities.Player;
-import Tiles.InteractiveTile;
-import Tiles.InteractiveTiles.Chest;
-import Tiles.InteractiveTiles.Door;
-import Tiles.InteractiveTiles.NPC.Bib;
-import Tiles.InteractiveTiles.NPC.Selector;
-import Tiles.InteractiveTiles.Pot;
+import Tiles.InteractiveTiles.InteractiveTile;
+import Tiles.InteractiveTiles.Types.Chest;
+import Tiles.InteractiveTiles.Types.Door;
+import Tiles.InteractiveTiles.Types.NPC.Types.Bib;
+import Tiles.InteractiveTiles.Types.NPC.Types.Selector;
+import Tiles.InteractiveTiles.Types.Pot;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import main.GamePanel;

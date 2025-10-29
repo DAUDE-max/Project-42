@@ -1,11 +1,10 @@
-package Tiles.InteractiveTiles.NPC;
+package Tiles.InteractiveTiles.Types.NPC.Types;
 
-import java.util.Scanner;
-
-import Items.CoinItem;
+import Items.Types.CoinItem;
+import Tiles.InteractiveTiles.Types.NPC.NPC;
 import main.GamePanel;
 
-public class Selector extends NPC{
+public class Selector extends NPC {
 
     int demand = 2;
 

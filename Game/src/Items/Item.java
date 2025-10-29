@@ -2,10 +2,12 @@ package Items;
 
 import main.GamePanel;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
-public class Item {
+public abstract class Item {
     //Position
     public int wX, wY;
     public Rectangle hitBox = new Rectangle(0,0,64,64);
@@ -15,6 +17,17 @@ public class Item {
     public BufferedImage img;
     public boolean collision;
     public int id;
+
+
+
+    protected void getImg(String path){
+        try {
+            img = ImageIO.read(getClass().getResourceAsStream(path));
+        }catch (IOException e){
+            e.printStackTrace();
+
+        }
+    }
 
     //Super method for all following item actions
     public boolean interact(GamePanel p) {

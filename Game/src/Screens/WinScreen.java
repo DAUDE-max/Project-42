@@ -1,4 +1,6 @@
-package main;
+package Screens;
+
+import main.AppSettings;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

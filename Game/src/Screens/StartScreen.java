@@ -1,4 +1,7 @@
-package main;
+package Screens;
+
+import main.AppSettings;
+import main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

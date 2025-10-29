@@ -1,7 +1,7 @@
 package Physik;
 
 import Entities.*;
-import Tiles.InteractiveTile;
+import Tiles.InteractiveTiles.InteractiveTile;
 import main.GamePanel;
 
 

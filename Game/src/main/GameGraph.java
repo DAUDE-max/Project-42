@@ -1,7 +1,7 @@
 package main;
 
 import Items.Item;
-import Tiles.InteractiveTile;
+import Tiles.InteractiveTiles.InteractiveTile;
 import java.awt.*;
 
 public class GameGraph {

@@ -1,4 +1,6 @@
-package main;
+package Overlays;
+
+import main.AppSettings;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
